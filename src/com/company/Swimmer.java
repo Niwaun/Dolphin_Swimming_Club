@@ -26,7 +26,7 @@ public class Swimmer {
             System.out.println("Hvor gammel er du");
         }
         age = input.nextInt();
-        while (age < 0){
+        while (age < 1){
             System.out.println("Skriv et tal over 0");
             while (!input.hasNextInt()){
                 input.next();
