@@ -3,10 +3,11 @@ package com.company;
 import java.util.Scanner;
 
 public class Membership extends Swimmer {
-    private boolean active = true;                                                                                      //Aktiv eller passivt
-    private boolean elite = true;                                                                                       //Elite eller træning
-    private boolean junior = true;                                                                                      //Junior eller senior
-    private boolean seniorDiscount = true;                                                                              //Aldersrabet
+    private boolean active;
+    private boolean elite;
+    private boolean junior;
+    private boolean seniorDiscount;
+    private double price;
 
     public Membership() {
         super();
@@ -14,6 +15,26 @@ public class Membership extends Swimmer {
         setElite();
         setJunior();
         setSeniorDiscount();
+        setPrice();
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice() {
+        if (active == true){
+            if (junior == true){
+                price = 1000;
+            }else if (junior == false){
+                price = 1600;
+            }
+        }else
+            price = 500;
+
+        if (seniorDiscount == true){
+            price = price - (price * 0.25);
+        }
     }
 
     public boolean isElite() {
@@ -23,16 +44,19 @@ public class Membership extends Swimmer {
     public void setElite() {
         Scanner input = new Scanner(System.in);
         System.out.println("Skal det være et elite eller trænings medlemsskab?");
-        switch (input.next().toLowerCase()){
-            case "elite":
-                active = true;
-                break;
-            case "træning":
-                active = false;
-                break;
-            default:
-                System.out.println("Fejl");
-        }
+        do {
+            switch (input.nextLine().toLowerCase()) {
+                case "elite":
+                    active = true;
+                    return;
+                case "træning":
+                    active = false;
+                    return;
+                default:
+                    System.out.println("Fejl i indtastning");
+                    System.out.println("Prøv igen");
+            }
+        }while (true);
     }
 
     public boolean isJunior() {
@@ -51,7 +75,7 @@ public class Membership extends Swimmer {
     }
 
     public void setSeniorDiscount() {
-        if (getAge() > 65){
+        if (getAge() > 60){
             seniorDiscount = true;
         } else
             seniorDiscount = false;
@@ -64,15 +88,18 @@ public class Membership extends Swimmer {
     public void setActive() {
         Scanner input = new Scanner(System.in);
         System.out.println("Skal det være et aktivt eller passivt medlemsskab?");
-        switch (input.next().toLowerCase()){
-            case "aktivt":
-                active = true;
-                break;
-            case "passivt":
-                active = false;
-                break;
-            default:
-                System.out.println("Fejl");
-        }
+        do {
+            switch (input.next().toLowerCase()) {
+                case "aktivt":
+                    active = true;
+                    return;
+                case "passivt":
+                    active = false;
+                    return;
+                default:
+                    System.out.println("Fejl i indtastning");
+                    System.out.println("Prøv igen");
+            }
+        }while (true);
     }
 }
