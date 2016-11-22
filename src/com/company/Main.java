@@ -1,13 +1,17 @@
 package com.company;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList <Membership> member = new ArrayList<>();
-
+        ArrayList <Membership> members = new ArrayList<>();
+        ArrayList <User> users = new ArrayList<>();
+        System.out.println("Velkommen til Dolphin Swimming Club");
+        System.out.println("Username: ");
+        System.out.println("Password: ");
     }
 
     public static void createMember(ArrayList member){
