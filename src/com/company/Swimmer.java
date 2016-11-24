@@ -1,4 +1,5 @@
 package com.company;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Swimmer {
@@ -7,7 +8,6 @@ public class Swimmer {
     private int age;
 
     public Swimmer() {
-        setId();
         setName();
         setAge();
     }
@@ -16,8 +16,8 @@ public class Swimmer {
         return id;
     }
 
-    public void setId() {
-        this.id = id;
+    public void setId(ArrayList <Membership> member) {
+        id = member.size();
     }
 
     public int getAge() {
@@ -53,5 +53,6 @@ public class Swimmer {
         Scanner input = new Scanner(System.in);
         System.out.println("Hvad er svømmerens navn?");
         name = input.next();
+
     }
 }

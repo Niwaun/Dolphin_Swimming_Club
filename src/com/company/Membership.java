@@ -12,7 +12,9 @@ public class Membership extends Swimmer {
     public Membership() {
         super();
         setActive();
-        setElite();
+        if (active == true) {
+            setElite();
+        }
         setJunior();
         setSeniorDiscount();
         setPrice();
@@ -89,7 +91,7 @@ public class Membership extends Swimmer {
         Scanner input = new Scanner(System.in);
         System.out.println("Skal det være et aktivt eller passivt medlemsskab?");
         do {
-            switch (input.next().toLowerCase()) {
+            switch (input.nextLine().toLowerCase()) {
                 case "aktivt":
                     active = true;
                     return;
