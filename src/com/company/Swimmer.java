@@ -30,15 +30,15 @@ public class Swimmer {
         System.out.println("Hvor gammel er svømmeren?");
         while(!input.hasNextInt()){
             input.next();
-            System.out.println("Prøv igen. Skriv et helt tal");
+            System.out.println("Fejl! Skriv et tal");
             System.out.println("Hvor gammel er svømmeren?");
         }
         age = input.nextInt();
         while (age < 1){
-            System.out.println("Skriv et tal over 0");
+            System.out.println("Fejl! Skriv et tal over 0");
             while (!input.hasNextInt()){
                 input.next();
-                System.out.println("Prøv igen. Skriv et helt tal");
+                System.out.println("Fejl! Skriv et tal");
                 System.out.println("Hvor gammel er svømmeren?");
             }
             age = input.nextInt();
@@ -52,6 +52,11 @@ public class Swimmer {
     public void setName() {
         Scanner input = new Scanner(System.in);
         System.out.println("Hvad er svømmerens navn?");
+        while (input.hasNextInt()){
+            input.next();
+            System.out.println("Fejl! Skriv et navn");
+            System.out.println("Hvad er svømmerens navn?");
+        }
         name = input.next();
     }
 }
