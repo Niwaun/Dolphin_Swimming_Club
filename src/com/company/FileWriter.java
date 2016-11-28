@@ -28,7 +28,7 @@ public class FileWriter {
             boolean seniorDiscount = members.get(i).isSeniorDiscount();
 
             out.print(id + "\t" + name + "\t" + age + "\t\t" + active + "\t" + elite + "\t" + junior + "\t" + seniorDiscount + "\t\t\t" + price);
-            out.println("");
+            out.println();
 
         }
     }
