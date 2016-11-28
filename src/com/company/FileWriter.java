@@ -66,8 +66,6 @@ public class FileWriter {
             tempSeniorDisc = lineScanner.nextBoolean();
             tempPrice = lineScanner.nextInt();
 
-            members.add(new Membership());
-
         }
     }
 }
