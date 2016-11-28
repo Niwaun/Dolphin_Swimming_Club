@@ -19,7 +19,7 @@ public class Main {
 
         FileWriter fw = new FileWriter("virkerdet.txt");
         fw.saveToFile(members);
-//        saveToFile(members);
+        saveToFile(members);
 
 
 //        for (Membership p: members) {
