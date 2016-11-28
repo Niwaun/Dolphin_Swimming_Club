@@ -1,22 +1,30 @@
 package com.company;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         ArrayList <Membership> members = new ArrayList<>();
         ArrayList <User> users = new ArrayList<>();
 //        System.out.println("Velkommen til Dolphin Swimming Club");
 //        System.out.println("Username: ");
 //        System.out.println("Password: ");
         createMember(members);
-        saveToFile(members);
+
+        FileWriter fw = new FileWriter("virkerdet.txt");
+        fw.saveToFile(members);
+//        saveToFile(members);
+
+
 //        for (Membership p: members) {
 //            System.out.println(p.getId());
 //        }
-
     }
 
     public static void createMember(ArrayList <Membership> member){
