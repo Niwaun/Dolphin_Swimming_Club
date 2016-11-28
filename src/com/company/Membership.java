@@ -20,6 +20,18 @@ public class Membership extends Swimmer {
         setPrice();
     }
 
+    public Membership(int id, String name, int age, boolean active, boolean elite, boolean junior, boolean disc, double price){
+
+        super(id, name, age);
+        this.active = active;
+        this.elite = elite;
+        this.junior = junior;
+        this.seniorDiscount = disc;
+        this.price = price;
+
+
+    }
+
     public double getPrice() {
         return price;
     }

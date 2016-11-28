@@ -1,30 +1,36 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+//        Scanner input = new Scanner(System.in);
         ArrayList <Membership> members = new ArrayList<>();
-        ArrayList <User> users = new ArrayList<>();
-        System.out.println("Velkommen til Dolphin Swimming Club");
-        System.out.println("Username: ");
-        System.out.println("Password: ");
-        while (true) {
+
+            FileWriter fw = new FileWriter("virkerdet.txt");
+            fw.readFile(members);
             createMember(members, members.size());
-            createUser(users);
+            fw.saveToFile(members);
+
+//        ArrayList <User> users = new ArrayList<>();
+//        System.out.println("Velkommen til Dolphin Swimming Club");
+//        System.out.println("Username: ");
+//        System.out.println("Password: ");
+//        while (true) {
+//            createMember(members, members.size());
+//            createUser(users);
             saveSwimmerToFile(members);
-            saveUserToFile(users);
-            System.out.println("quit?");
-            switch (input.nextLine().toLowerCase()){
-                case "yes":
-                    return;
-                default:
-                    break;
-            }
-        }
+//            saveUserToFile(users);
+//            System.out.println("quit?");
+//            switch (input.nextLine().toLowerCase()){
+//                case "yes":
+//                    return;
+//                default:
+//                    break;
+//            }
+//        }
     }
 
     public static void createMember(ArrayList <Membership> member, int i){

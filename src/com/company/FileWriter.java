@@ -3,19 +3,21 @@ package com.company;
 import java.io.*;
 import java.util.*;
 
-public class FileWriter {
+public class FileWriter{
     private String fileName;
     private PrintStream out;
 
     public FileWriter(String fileName) throws FileNotFoundException {
         this.fileName = fileName;
-        out = new PrintStream(new File(this.fileName));
     }
 
-    public void saveToFile(ArrayList<Membership> members){
+    public void saveToFile(ArrayList<Membership> members) throws IOException {
 
-        out.print("ID\tNAVN\tALDER\tAKTIVT\tELITE\tJUNIOR\tSENIORDISCOUNT\tPRICE");
+        out = new PrintStream(new File(this.fileName));
+
+        out.print("ID\tNAVN\t\t\tALDER\tAKTIVT\tELITE\tJUNIOR\tSENIORDISCOUNT\tPRICE");
         out.println();
+
 
         for (int i = 0; i < members.size(); i++) {
             int id = members.get(i).getId();
@@ -27,7 +29,7 @@ public class FileWriter {
             boolean junior = members.get(i).isJunior();
             boolean seniorDiscount = members.get(i).isSeniorDiscount();
 
-            out.print(id + "\t" + name + "\t" + age + "\t\t" + active + "\t" + elite + "\t" + junior + "\t" + seniorDiscount + "\t\t\t" + price);
+            out.print(id + "\t" + name + "\t\t\t" + age + "\t\t" + active + "\t" + elite + "\t" + junior + "\t" + seniorDiscount + "\t\t\t" + price);
             out.println();
 
         }
@@ -43,7 +45,7 @@ public class FileWriter {
         }
     }
 
-    public void readLine(String text, ArrayList<Membership> members){
+    public void readLine(String text, ArrayList<Membership> members)throws IOException{
 
         Scanner lineScanner = new Scanner(text);
         int tempID;
@@ -53,10 +55,12 @@ public class FileWriter {
         boolean tempElite;
         boolean tempJunior;
         boolean tempSeniorDisc;
-        int tempPrice;
+        double tempPrice;
 
 
         while(lineScanner.hasNext()){
+
+
             tempID = lineScanner.nextInt();
             tempName = lineScanner.next();
             tempAge = lineScanner.nextInt();
@@ -64,8 +68,12 @@ public class FileWriter {
             tempElite = lineScanner.nextBoolean();
             tempJunior = lineScanner.nextBoolean();
             tempSeniorDisc = lineScanner.nextBoolean();
-            tempPrice = lineScanner.nextInt();
+            tempPrice = lineScanner.nextDouble();
+
+            members.add(new Membership(tempID, tempName, tempAge, tempActive, tempElite, tempJunior, tempSeniorDisc, tempPrice));
 
         }
     }
+
+
 }

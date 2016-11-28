@@ -40,7 +40,7 @@ public class User {
     public void setRole() {
         Scanner input = new Scanner(System.in);
         System.out.println("Hvilken rolle skal brugeren have?");
-        System.out.println("1. Træner/n2. Bestyrrer/n3. Kasserer");
+        System.out.println("1. Træner\n2. Bestyrrer\n3. Kasserer");
         do {
             switch (input.nextLine().toLowerCase()) {
                 case "træner":
