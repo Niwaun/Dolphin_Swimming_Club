@@ -12,7 +12,7 @@ public class Main {
 //        System.out.println("Username: ");
 //        System.out.println("Password: ");
         createMember(members);
-        showShit(members);
+        saveToFile(members);
 //        for (Membership p: members) {
 //            System.out.println(p.getId());
 //        }
@@ -29,7 +29,7 @@ public class Main {
         }
     }
 
-    public static void showShit(ArrayList <Membership> member){
+    public static void saveToFile(ArrayList <Membership> member){
             for (int i = 0; i < member.size(); i++){
                 System.out.println("Id: " + member.get(i).getId());
                 System.out.println("Name: " + member.get(i).getName());
