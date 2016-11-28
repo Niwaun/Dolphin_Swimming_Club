@@ -9,9 +9,9 @@ public class Main {
         Scanner input = new Scanner(System.in);
         ArrayList <Membership> members = new ArrayList<>();
         ArrayList <User> users = new ArrayList<>();
-//        System.out.println("Velkommen til Dolphin Swimming Club");
-//        System.out.println("Username: ");
-//        System.out.println("Password: ");
+        System.out.println("Velkommen til Dolphin Swimming Club");
+        System.out.println("Username: ");
+        System.out.println("Password: ");
         while (true) {
             createMember(members, members.size());
             createUser(users);
