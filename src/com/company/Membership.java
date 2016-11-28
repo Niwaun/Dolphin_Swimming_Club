@@ -48,7 +48,7 @@ public class Membership extends Swimmer {
             price = 500;
 
         if (seniorDiscount == true){
-            price = (int) (dPrice - (dPrice * 0.25));
+            price = (int) (price - (price * 0.25));
         }
     }
 
