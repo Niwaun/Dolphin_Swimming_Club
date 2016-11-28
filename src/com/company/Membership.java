@@ -46,7 +46,7 @@ public class Membership extends Swimmer {
 
     public void setElite() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Skal det være et elite eller trænings medlemsskab?");
+        System.out.println("Skal det være et Elite eller Trænings medlemsskab?");
         do {
             switch (input.nextLine().toLowerCase()) {
                 case "elite":
@@ -56,8 +56,7 @@ public class Membership extends Swimmer {
                     elite = false;
                     return;
                 default:
-                    System.out.println("Fejl i indtastning");
-                    System.out.println("Prøv igen");
+                    System.out.println("Fejl! Vælg enten træning eller elite.");
             }
         }while (true);
     }
@@ -92,7 +91,7 @@ public class Membership extends Swimmer {
 
     public void setActive() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Skal det være et aktivt eller passivt medlemsskab?");
+        System.out.println("Skal det være et Aktivt eller Passivt medlemsskab?");
         do {
             switch (input.nextLine().toLowerCase()) {
                 case "aktivt":
@@ -102,8 +101,7 @@ public class Membership extends Swimmer {
                     active = false;
                     return;
                 default:
-                    System.out.println("Fejl i indtastning");
-                    System.out.println("Prøv igen");
+                    System.out.println("Fejl! Vælg enten Aktivt eller Passivt.");
             }
         }while (true);
     }
