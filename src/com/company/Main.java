@@ -6,27 +6,33 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
         ArrayList <Membership> members = new ArrayList<>();
         ArrayList <User> users = new ArrayList<>();
 //        System.out.println("Velkommen til Dolphin Swimming Club");
 //        System.out.println("Username: ");
 //        System.out.println("Password: ");
-        createMember(members);
-        saveToFile(members);
-//        for (Membership p: members) {
-//            System.out.println(p.getId());
-//        }
-
+        while (true) {
+            createMember(members, members.size());
+            saveToFile(members);
+            System.out.println("quit?");
+            switch (input.nextLine().toLowerCase()){
+                case "yes":
+                    return;
+                default:
+                    break;
+            }
+        }
     }
 
-    public static void createMember(ArrayList <Membership> member){
+    public static void createMember(ArrayList <Membership> member, int i){
+        member.add(new Membership());
+        member.get(i).setId(member);
+    }
+
+    public static void createUser(ArrayList <User> users){
         Scanner input = new Scanner(System.in);
-        System.out.println("Hvor mange svømmere skal oprettes?");
-        int answer = input.nextInt();
-        for (int i = 0; i < answer; i++) {
-            member.add(new Membership());
-            member.get(i).setId(member);
-        }
+        System.out.println("");
     }
 
     public static void saveToFile(ArrayList <Membership> member){
