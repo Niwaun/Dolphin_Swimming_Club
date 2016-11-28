@@ -40,6 +40,7 @@ public class Membership extends Swimmer {
     }
 
     public boolean isElite() {
+
         return elite;
     }
 
@@ -49,10 +50,10 @@ public class Membership extends Swimmer {
         do {
             switch (input.nextLine().toLowerCase()) {
                 case "elite":
-                    active = true;
+                    elite = true;
                     return;
                 case "træning":
-                    active = false;
+                    elite = false;
                     return;
                 default:
                     System.out.println("Fejl i indtastning");
@@ -62,6 +63,7 @@ public class Membership extends Swimmer {
     }
 
     public boolean isJunior() {
+
         return junior;
     }
 
@@ -73,6 +75,7 @@ public class Membership extends Swimmer {
     }
 
     public boolean isSeniorDiscount() {
+
         return seniorDiscount;
     }
 
