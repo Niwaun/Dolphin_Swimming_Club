@@ -53,6 +53,5 @@ public class Swimmer {
         Scanner input = new Scanner(System.in);
         System.out.println("Hvad er svømmerens navn?");
         name = input.next();
-
     }
 }
