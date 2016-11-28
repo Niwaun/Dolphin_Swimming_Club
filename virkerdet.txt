@@ -1,3 +1,8 @@
 ID	NAVN			ALDER	AKTIVT	ELITE	JUNIOR	SENIORDISCOUNT	PRICE
-1	Ole			68		false	false	false	true			375.0
-2	Karen			13		false	false	true	false			500.0
+1	Ole			68		false	false	false	true			375
+2	Karen			13		false	false	true	false			500
+3	Erik			53		false	false	false	false			500
+4	Alex			65		false	false	false	true			375
+5	Ida			23		true	true	false	false			1600
+6	Arne			65		false	false	false	true			500
+7	Ida			12		false	false	true	false			500

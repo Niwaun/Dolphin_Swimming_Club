@@ -22,7 +22,7 @@ public class FileWriter{
         for (int i = 0; i < members.size(); i++) {
             int id = members.get(i).getId();
             String name = members.get(i).getName();
-            double price = members.get(i).getPrice();
+            int price = members.get(i).getPrice();
             int age = members.get(i).getAge();
             boolean active = members.get(i).isActive();
             boolean elite = members.get(i).isElite();
@@ -55,11 +55,10 @@ public class FileWriter{
         boolean tempElite;
         boolean tempJunior;
         boolean tempSeniorDisc;
-        double tempPrice;
+        int tempPrice;
 
 
         while(lineScanner.hasNext()){
-
 
             tempID = lineScanner.nextInt();
             tempName = lineScanner.next();
@@ -68,7 +67,7 @@ public class FileWriter{
             tempElite = lineScanner.nextBoolean();
             tempJunior = lineScanner.nextBoolean();
             tempSeniorDisc = lineScanner.nextBoolean();
-            tempPrice = lineScanner.nextDouble();
+            tempPrice = lineScanner.nextInt();
 
             members.add(new Membership(tempID, tempName, tempAge, tempActive, tempElite, tempJunior, tempSeniorDisc, tempPrice));
 

@@ -8,11 +8,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
 //        Scanner input = new Scanner(System.in);
         ArrayList <Membership> members = new ArrayList<>();
+        FileWriter fw = new FileWriter("virkerdet.txt");
+        fw.readFile(members);
+        createMember(members, members.size());
+        fw.saveToFile(members);
 
-            FileWriter fw = new FileWriter("virkerdet.txt");
-            fw.readFile(members);
-            createMember(members, members.size());
-            fw.saveToFile(members);
 
 //        ArrayList <User> users = new ArrayList<>();
 //        System.out.println("Velkommen til Dolphin Swimming Club");
