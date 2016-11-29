@@ -12,7 +12,8 @@ public class Main {
         FileReader fr = new FileReader("virkerdet.txt");
         fr.readFile(members);
         createMember(members);
-        fw.saveToFile(members);
+        fw.saveMemberToFile(members);
+
 
 
 //        ArrayList <User> users = new ArrayList<>();
@@ -22,7 +23,7 @@ public class Main {
 //        while (true) {
 //            createMember(members, members.size());
 //            createUser(users);
-            saveSwimmerToFile(members);
+            printSwimmerInfo(members);
 //            saveUserToFile(users);
 //            System.out.println("quit?");
 //            switch (input.nextLine().toLowerCase()){
@@ -42,7 +43,7 @@ public class Main {
         users.add(new User());
     }
 
-    public static void saveSwimmerToFile(ArrayList <Membership> member){
+    public static void printSwimmerInfo(ArrayList <Membership> member){
             for (int i = 0; i < member.size(); i++){
                 System.out.println("Id:         " + member.get(i).getCpr());
                 System.out.println("Name:       " + member.get(i).getName());
@@ -56,7 +57,7 @@ public class Main {
             }
     }
 
-    public static void saveUserToFile(ArrayList <User> users){
+    public static void printUserInfo(ArrayList <User> users){
         for (int i = 0; i < users.size(); i++) {
             System.out.println("Username:   " + users.get(i).getUsername());
             System.out.println("Password:   " + users.get(i).getPassword());

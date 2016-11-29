@@ -11,7 +11,7 @@ public class FileWriter{
         this.fileName = fileName;
     }
 
-    public void saveToFile(ArrayList<Membership> members) throws IOException {
+    public void saveMemberToFile(ArrayList<Membership> members) throws IOException {
 
         out = new PrintStream(new File(this.fileName));
 
@@ -34,8 +34,4 @@ public class FileWriter{
 
         }
     }
-
-
-
-
 }
