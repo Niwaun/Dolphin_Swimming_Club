@@ -27,7 +27,7 @@ public class FileReader {
     public void readLine(String text, ArrayList<Membership> members)throws IOException{
 
         Scanner lineScanner = new Scanner(text);
-        int tempID;
+        String tempCPR;
         String tempName;
         int tempAge;
         boolean tempActive;
@@ -39,7 +39,7 @@ public class FileReader {
 
         while(lineScanner.hasNext()){
 
-            tempID = lineScanner.nextInt();
+            tempCPR = lineScanner.next();
             tempName = lineScanner.next();
             tempAge = lineScanner.nextInt();
             tempActive = lineScanner.nextBoolean();
@@ -48,7 +48,7 @@ public class FileReader {
             tempSeniorDisc = lineScanner.nextBoolean();
             tempPrice = lineScanner.nextInt();
 
-            members.add(new Membership(tempID, tempName, tempAge, tempActive, tempElite, tempJunior, tempSeniorDisc, tempPrice));
+            members.add(new Membership(tempCPR, tempName, tempAge, tempActive, tempElite, tempJunior, tempSeniorDisc, tempPrice));
 
         }
     }

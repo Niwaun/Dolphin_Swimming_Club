@@ -1,9 +1,10 @@
 package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Swimmer {
-    private int id;
+    private String cpr;
     private String name;
     private int age;
 
@@ -12,19 +13,26 @@ public class Swimmer {
         setAge();
     }
 
-    public Swimmer(int id, String name, int age){
+    public Swimmer(String cpr, String name, int age){
 
-        this.id = id;
+        this.cpr = cpr;
         this.name = name;
         this.age = age;
     }
 
-    public int getId() {
-        return id;
+    public String getCpr() {
+        return cpr;
     }
 
-    public void setId(ArrayList <Membership> member) {
-        id = member.size();
+    public void setCpr() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Hvad er svømmerens CPR nr?");
+        while (input.hasNext()){
+            if(Pattern.matches("[a-zA-Z]+", input.nextLine()) == false && input.nextLine().length() == 10){
+
+            }
+        }
     }
 
     public int getAge() {

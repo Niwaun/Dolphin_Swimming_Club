@@ -7,7 +7,6 @@ public class Membership extends Swimmer {
     private boolean elite;
     private boolean junior;
     private boolean seniorDiscount;
-    private double dPrice;
     private int price;
 
     public Membership() {
@@ -21,9 +20,9 @@ public class Membership extends Swimmer {
         setPrice();
     }
 
-    public Membership(int id, String name, int age, boolean active, boolean elite, boolean junior, boolean disc, int price){
+    public Membership(String cpr, String name, int age, boolean active, boolean elite, boolean junior, boolean disc, int price){
 
-        super(id, name, age);
+        super(cpr, name, age);
         this.active = active;
         this.elite = elite;
         this.junior = junior;

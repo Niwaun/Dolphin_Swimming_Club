@@ -11,7 +11,7 @@ public class Main {
         FileWriter fw = new FileWriter("virkerdet.txt");
         FileReader fr = new FileReader("virkerdet.txt");
         fr.readFile(members);
-        createMember(members, members.size());
+        createMember(members);
         fw.saveToFile(members);
 
 
@@ -34,9 +34,8 @@ public class Main {
 //        }
     }
 
-    public static void createMember(ArrayList <Membership> member, int i){
+    public static void createMember(ArrayList <Membership> member){
         member.add(new Membership());
-        member.get(i).setId(member);
     }
 
     public static void createUser(ArrayList <User> users){
@@ -45,7 +44,7 @@ public class Main {
 
     public static void saveSwimmerToFile(ArrayList <Membership> member){
             for (int i = 0; i < member.size(); i++){
-                System.out.println("Id:         " + member.get(i).getId());
+                System.out.println("Id:         " + member.get(i).getCpr());
                 System.out.println("Name:       " + member.get(i).getName());
                 System.out.println("Age:        " + member.get(i).getAge());
                 System.out.println("Active:     " + member.get(i).isActive());

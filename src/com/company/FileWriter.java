@@ -20,7 +20,7 @@ public class FileWriter{
 
 
         for (int i = 0; i < members.size(); i++) {
-            int id = members.get(i).getId();
+            String cpr = members.get(i).getCpr();
             String name = members.get(i).getName();
             int price = members.get(i).getPrice();
             int age = members.get(i).getAge();
@@ -29,7 +29,7 @@ public class FileWriter{
             boolean junior = members.get(i).isJunior();
             boolean seniorDiscount = members.get(i).isSeniorDiscount();
 
-            out.print(id + "\t" + name + "\t\t\t" + age + "\t\t" + active + "\t" + elite + "\t" + junior + "\t" + seniorDiscount + "\t\t\t" + price);
+            out.print(cpr + "\t" + name + "\t\t\t" + age + "\t\t" + active + "\t" + elite + "\t" + junior + "\t" + seniorDiscount + "\t\t\t" + price);
             out.println();
 
         }
