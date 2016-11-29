@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Membership extends Swimmer {
     private boolean active;
