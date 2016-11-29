@@ -6,20 +6,24 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException, ParseException {
 //        Scanner input = new Scanner(System.in);
 //        ArrayList <Membership> members = new ArrayList<>();
-        FileWriter fwMember = new FileWriter("virkerdet.txt");
+//        FileWriter fwMember = new FileWriter("virkerdet.txt");
 //        FileReader fr = new FileReader("virkerdet.txt");
-//        fr.readFile(members);
+//        fr.readMemberFile(members);
 //        createMember(members);
 //        fw.saveMemberToFile(members);
 
         FileWriter fwTimes = new FileWriter("times.txt");
+        FileReader frTimes = new FileReader("times.txt");
         ArrayList<Times> times = new ArrayList<>();
+//        frTimes.readTimesFile(times);
+
         createTime(times);
-        fwTimes.saveTimeToFile(times);
-        printTimesInfo(times);
+
+//        fwTimes.saveTimeToFile(times);
+//        printTimesInfo(times);
 
 
 //        ArrayList <User> users = new ArrayList<>();

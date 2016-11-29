@@ -49,6 +49,17 @@ public class Times extends Swimmer{
         }
     }
 
+    public Times(String cpr, boolean crawl, int ctid, boolean butterfly, int btid, boolean bryst, int brtid, boolean fri, int ftid) throws ParseException{
+        this.crawl = crawl;
+        this.butterfly = butterfly;
+        this.bryst = bryst;
+        this.fri = fri;
+        this.crawlTid = ctid;
+        this.butterflyTid = btid;
+        this.brystTid = brtid;
+        this.friTid = ftid;
+    }
+
     Scanner input = new Scanner(System.in);
 
     private boolean crawl = false;
@@ -93,6 +104,7 @@ public class Times extends Swimmer{
             System.out.println("Der opstod en fejl.\nPrøv igen. Husk at skrive hele tal i sekunder");
             System.out.println("Hvad var svømmerens tid? (i sekunder");
         }
+
         this.crawlTid = input.nextInt();
     }
 

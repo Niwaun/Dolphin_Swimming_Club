@@ -11,7 +11,6 @@ public class Membership extends Swimmer {
     private int price;
 
     public Membership() throws ParseException{
-        super();
         setActive();
         if (active == true) {
             setElite();
