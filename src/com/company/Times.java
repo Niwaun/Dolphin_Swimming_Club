@@ -49,7 +49,8 @@ public class Times extends Swimmer{
         }
     }
 
-    public Times(String cpr, boolean crawl, int ctid, boolean butterfly, int btid, boolean bryst, int brtid, boolean fri, int ftid) throws ParseException{
+    public Times(String cpr, String name, boolean crawl, int ctid, boolean butterfly, int btid, boolean bryst, int brtid, boolean fri, int ftid) throws ParseException{
+        super(cpr, name);
         this.crawl = crawl;
         this.butterfly = butterfly;
         this.bryst = bryst;

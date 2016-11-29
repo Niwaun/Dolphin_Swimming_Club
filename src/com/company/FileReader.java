@@ -70,6 +70,7 @@ public class FileReader {
         Scanner lineScanner = new Scanner(text);
 
         String tempCpr;
+        String tempName;
         boolean tempCrawl;
         boolean tempBryst;
         boolean tempButterfly;
@@ -81,6 +82,7 @@ public class FileReader {
 
         while(lineScanner.hasNext()){
             tempCpr = lineScanner.next();
+            tempName = lineScanner.next();
             tempCrawl = lineScanner.nextBoolean();
             tempCrawlTid = lineScanner.nextInt();
             tempButterfly = lineScanner.nextBoolean();
@@ -90,7 +92,7 @@ public class FileReader {
             tempFri = lineScanner.nextBoolean();
             tempFriTid = lineScanner.nextInt();
 
-            times.add(new Times(tempCpr, tempCrawl, tempCrawlTid, tempButterfly, tempButterflyTid, tempBryst, tempBrystTid, tempFri, tempFriTid));
+            times.add(new Times(tempCpr, tempName, tempCrawl, tempCrawlTid, tempButterfly, tempButterflyTid, tempBryst, tempBrystTid, tempFri, tempFriTid));
         }
     }
 }

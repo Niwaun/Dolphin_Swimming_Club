@@ -12,15 +12,18 @@ public class Main {
 //        FileWriter fwMember = new FileWriter("virkerdet.txt");
 //        FileReader fr = new FileReader("virkerdet.txt");
 //        fr.readMemberFile(members);
+//        printSwimmerInfo(members);
 //        createMember(members);
 //        fw.saveMemberToFile(members);
 
-        FileWriter fwTimes = new FileWriter("times.txt");
+//        FileWriter fwTimes = new FileWriter("times.txt");
         FileReader frTimes = new FileReader("times.txt");
         ArrayList<Times> times = new ArrayList<>();
-//        frTimes.readTimesFile(times);
+        frTimes.readTimesFile(times);
 
-        createTime(times);
+//        createTime(times);
+
+        crawlTidSorter(times);
 
 //        fwTimes.saveTimeToFile(times);
 //        printTimesInfo(times);
@@ -59,7 +62,7 @@ public class Main {
 
     public static void printSwimmerInfo(ArrayList <Membership> member){
             for (int i = 0; i < member.size(); i++){
-                System.out.println("Id:         " + member.get(i).getCpr());
+                System.out.println("Cpr:        " + member.get(i).getCpr());
                 System.out.println("Name:       " + member.get(i).getName());
                 System.out.println("Age:        " + member.get(i).getAge());
                 System.out.println("Active:     " + member.get(i).isActive());
@@ -92,4 +95,27 @@ public class Main {
             System.out.println("Tid          " + times.get(i).getFriTid());
         }
     }
+
+    public static void crawlTidSorter(ArrayList <Times> times){
+
+        ArrayList<Integer> crawlTid = new ArrayList<>();
+
+        for (int i = 0; i < times.size(); i++) {
+            if(times.get(i).isCrawl() == true){
+                crawlTid.add(times.get(i).getCrawlTid());
+            }
+        }
+        Collections.sort(crawlTid);
+        for (int i = 0; i < 5; i++) {
+            int x = crawlTid.get(i);
+            for (int j = 0; j < times.size(); j++) {
+                if(x == times.get(j).getCrawlTid()){
+                    System.out.println(x + "\t" + times.get(j).getName());
+                }
+            }
+        }
+    }
+
+
+
 }
