@@ -1,9 +1,7 @@
 package com.company;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 /**
  * Created by Anders on 29-Nov-16.
