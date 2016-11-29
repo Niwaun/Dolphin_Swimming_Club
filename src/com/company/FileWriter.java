@@ -34,4 +34,31 @@ public class FileWriter{
 
         }
     }
+
+    public void saveTimeToFile(ArrayList<Times> times) throws IOException{
+
+        this.fileName = fileName;
+        out = new PrintStream(new File(fileName));
+
+        out.print("CPR\tNAVN\tCRAWL\tTID\tBUTTERFLY\tTID\tBRYST\tTID\tFRI\tTID");
+        out.println();
+
+        for (int i = 0; i < times.size(); i++) {
+            String cpr = times.get(i).getCpr();
+            String name = times.get(i).getName();
+            boolean crawl = times.get(i).isCrawl();
+            int crawlTid = times.get(i).getCrawlTid();
+            boolean butterfly = times.get(i).isButterfly();
+            int butterflyTid = times.get(i).getButterflyTid();
+            boolean bryst = times.get(i).isBryst();
+            int brystTid = times.get(i).getBrystTid();
+            boolean fri = times.get(i).isFri();
+            int friTid = times.get(i).getFriTid();
+
+            out.print(cpr +"\t"+ name +"\t"+ crawl +"\t"+ crawlTid +"\t"+ butterfly +"\t"+ butterflyTid +"\t"+ bryst +"\t"+ brystTid +"\t"+ fri +"\t"+ friTid);
+            out.println();
+
+        }
+
+    }
 }

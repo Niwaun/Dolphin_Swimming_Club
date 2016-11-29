@@ -1,0 +1,2 @@
+CPR	NAVN	CRAWL	TID	BUTTERFLY	TID	BRYST	TID	FRI	TID
+null	Anders	false	0	false	0	false	0	true	76
