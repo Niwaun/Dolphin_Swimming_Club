@@ -9,7 +9,8 @@ public class Main {
 //        Scanner input = new Scanner(System.in);
         ArrayList <Membership> members = new ArrayList<>();
         FileWriter fw = new FileWriter("virkerdet.txt");
-        fw.readFile(members);
+        FileReader fr = new FileReader("virkerdet.txt");
+        fr.readFile(members);
         createMember(members, members.size());
         fw.saveToFile(members);
 

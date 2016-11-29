@@ -7,5 +7,6 @@ ID	NAVN			ALDER	AKTIVT	ELITE	JUNIOR	SENIORDISCOUNT	PRICE
 6	Arne			65		false	false	false	true			500
 7	Ida			12		false	false	true	false			500
 8	okle			23		true	true	false	false			1600
-9	per			99		true	true	false	true			0
 10	Peter			99		true	true	false	true			1200
+11	Bodil			657		true	true	false	true			1200
+11	Toke			17		false	false	true	false			500
