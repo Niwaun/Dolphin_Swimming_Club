@@ -1,5 +1,5 @@
 package com.company;
-import java.util.ArrayList;
+import java.text.ParseException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -7,10 +7,15 @@ public class Swimmer {
     private String cpr;
     private String name;
     private int age;
+    private String join;
+    private String birthday;
 
-    public Swimmer() {
+    public Swimmer() throws ParseException{
+        setCpr();
         setName();
         setAge();
+        setJoin();
+        setBirthday();
     }
 
     public Swimmer(String cpr, String name, int age){
@@ -29,18 +34,22 @@ public class Swimmer {
 
         System.out.println("Hvad er svømmerens CPR nr?");
         while (input.hasNext()){
-            if(Pattern.matches("[a-zA-Z]+", input.nextLine()) == false && input.nextLine().length() == 10){
-
-            }
+            cpr = input.nextLine();
+            if(Pattern.matches("[a-zA-Z]+", cpr) && cpr.length() != 10){
+                System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
+                System.out.println("Hvad er svømmerens CPR nr?");
+            } else
+                break;
         }
+        this.cpr = cpr.substring(0,6) + '-' + cpr.substring(6,10);
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge() {
-        Scanner input = new Scanner(System.in);
+    public void setAge() throws ParseException{
+        /*Scanner input = new Scanner(System.in);
 
         System.out.println("Hvor gammel er svømmeren?");
         while(!input.hasNextInt()){
@@ -57,7 +66,8 @@ public class Swimmer {
                 System.out.println("Hvor gammel er svømmeren?");
             }
             age = input.nextInt();
-        }
+        }*/
+        DateCalc dateCalc = new DateCalc(join, birthday);
     }
 
     public String getName() {
@@ -73,5 +83,21 @@ public class Swimmer {
             System.out.println("Hvad er svømmerens navn?");
         }
         name = input.next();
+    }
+
+    public String getJoin() {
+        return join;
+    }
+
+    public void setJoin() {
+        this.join = join;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday() {
+        this.birthday = cpr.substring(0,2) + '/' + cpr.substring(2,4) + '/' + cpr.substring(4,6);
     }
 }

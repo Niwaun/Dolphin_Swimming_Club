@@ -1,5 +1,6 @@
 package com.company;
 
+import java.text.ParseException;
 import java.util.*;
 
 public class Membership extends Swimmer {
@@ -9,7 +10,7 @@ public class Membership extends Swimmer {
     private boolean seniorDiscount;
     private int price;
 
-    public Membership() {
+    public Membership() throws ParseException{
         super();
         setActive();
         if (active == true) {
