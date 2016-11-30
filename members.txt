@@ -5,3 +5,9 @@ ID	NAVN			ALDER	AKTIVT	ELITE	JUNIOR	SENIORDISCOUNT	PRICE
 020202-0202	Will			14		false	false	true	false			500
 030303-0303	ædf			13		false	false	true	false			500
 040404-0404	Finn			12		false	false	true	false			500
+050505-0505	pooo			54		false	false	true	false			500
+060606-0606	paa			12		false	false	true	false			500
+070707-0707	AK			9		false	false	true	false			500
+080808-0808	oagd			8		false	false	true	false			500
+090909-0909	hyaha			7		false	false	true	false			500
+011214-9514	klfsgs			1		false	false	true	false			500
