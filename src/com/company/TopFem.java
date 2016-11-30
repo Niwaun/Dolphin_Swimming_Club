@@ -18,8 +18,9 @@ public class TopFem {
             }
         }
         Collections.sort(crawlTidArray);
-        System.out.println("Tid\tNavn");
+        crawlTidArray.subList(5,(crawlTidArray.size())).clear();
         System.out.println("De 5 hurtigste tider i crawl er: ");
+        System.out.println("Tid\tNavn");
         for (int i = 0; i < crawlTidArray.size(); i++) {
             int x = crawlTidArray.get(i);
             for (int j = 0; j < times.size(); j++) {
@@ -45,8 +46,9 @@ public class TopFem {
             }
         }
         Collections.sort(butterflyTidArray);
-        System.out.println("Tid\tNavn");
+        butterflyTidArray.subList(5,(butterflyTidArray.size())).clear();
         System.out.println("De 5 hurtigste tider i butterfly er: ");
+        System.out.println("Tid\tNavn");
         for (int i = 0; i < butterflyTidArray.size(); i++) {
             int x = butterflyTidArray.get(i);
             for (int j = 0; j < times.size(); j++) {
@@ -72,8 +74,9 @@ public class TopFem {
             }
         }
         Collections.sort(brystTidArray);
-        System.out.println("Tid\tNavn");
+        brystTidArray.subList(5,(brystTidArray.size())).clear();
         System.out.println("De 5 hurtigste tider i bryst er: ");
+        System.out.println("Tid\tNavn");
         for (int i = 0; i < brystTidArray.size(); i++) {
             int x = brystTidArray.get(i);
             for (int j = 0; j < times.size(); j++) {
@@ -99,6 +102,7 @@ public class TopFem {
             }
         }
         Collections.sort(friTidArray);
+        friTidArray.subList(5,(friTidArray.size())).clear();
         System.out.println("De 5 hurtigste tider i fri er: ");
         System.out.println("Tid\tNavn");
         for (int i = 0; i < friTidArray.size(); i++) {
@@ -115,5 +119,4 @@ public class TopFem {
             }
         }
     }
-
 }

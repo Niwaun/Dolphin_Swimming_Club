@@ -40,7 +40,7 @@ public class FileWriter{
         this.fileName = fileName;
         out = new PrintStream(new File(fileName));
 
-        out.print("CPR\tNAVN\tCRAWL\tTID\tBUTTERFLY\tTID\tBRYST\tTID\tFRI\tTID");
+        out.print("CPR\tCRAWL\tTID\tBUTTERFLY\tTID\tBRYST\tTID\tFRI\tTID");
         out.println();
 
         for (int i = 0; i < times.size(); i++) {

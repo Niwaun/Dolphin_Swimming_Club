@@ -29,9 +29,18 @@ public class CPR {
         System.out.println("Hvad er svømmerens CPR nr?");
         while (input.hasNext()){
             cpr = input.nextLine();
-            if(Pattern.matches("[a-zA-Z]+", cpr) && cpr.length() != 10){
-                System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
-                System.out.println("Hvad er svømmerens CPR nr?");
+
+            if(cpr.length() != 10){
+                if (Pattern.matches("[a-zA-Z]+", cpr) ) {
+                    System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
+                    System.out.println("Hvad er svømmerens CPR nr?");
+                } else {
+                    System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
+                    System.out.println("Hvad er svømmerens CPR nr?");
+                }
+            } else if(Pattern.matches("[a-zA-Z]+", cpr)) {
+                    System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
+                    System.out.println("Hvad er svømmerens CPR nr?");
             } else
                 break;
         }
