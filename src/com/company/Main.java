@@ -9,24 +9,25 @@ public class Main {
     public static void main(String[] args) throws IOException, ParseException{
 //        Scanner input = new Scanner(System.in);
         ArrayList <Membership> members = new ArrayList<>();
+        ArrayList <Times> times = new ArrayList<>();
+        TopFem topFem = new TopFem();
         FileWriter fwMember = new FileWriter("virkerdet.txt");
         FileReader fr = new FileReader("virkerdet.txt");
+        FileWriter fwTimes = new FileWriter("times.txt");
+        FileReader frTimes = new FileReader("times.txt");
         fr.readMemberFile(members);
         printSwimmerInfo(members);
         createMember(members);
         fwMember.saveMemberToFile(members);
 
-//        FileWriter fwTimes = new FileWriter("times.txt");
-//        FileReader frTimes = new FileReader("times.txt");
-//        ArrayList<Times> times = new ArrayList<>();
-//        frTimes.readTimesFile(times);
 
-//        createTime(times);
+        frTimes.readTimesFile(times);
+        createTime(times);
+        printTimesInfo(times);
+        topFem.crawlTidSorter(times, members);
+        fwTimes.saveTimeToFile(times);
 
-//        crawlTidSorter(times);
 
-//        fwTimes.saveTimeToFile(times);
-//        printTimesInfo(times);
 
 
 //        ArrayList <User> users = new ArrayList<>();
@@ -95,27 +96,4 @@ public class Main {
             System.out.println("Tid          " + times.get(i).getFriTid());
         }
     }
-
-    public static void crawlTidSorter(ArrayList <Times> times){
-
-        ArrayList<Integer> crawlTid = new ArrayList<>();
-
-        for (int i = 0; i < times.size(); i++) {
-            if(times.get(i).isCrawl() == true){
-                crawlTid.add(times.get(i).getCrawlTid());
-            }
-        }
-        Collections.sort(crawlTid);
-        for (int i = 0; i < 5; i++) {
-            int x = crawlTid.get(i);
-            for (int j = 0; j < times.size(); j++) {
-                if(x == times.get(j).getCrawlTid()){
-//                    System.out.println(x + "\t" + times.get(j).getName());
-                }
-            }
-        }
-    }
-
-
-
 }

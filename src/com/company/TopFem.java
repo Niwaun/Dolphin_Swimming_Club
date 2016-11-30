@@ -8,7 +8,7 @@ import java.util.Collections;
  */
 public class TopFem {
 
-    public static void crawlTidSorter(ArrayList<Times> times){
+    public static void crawlTidSorter(ArrayList<Times> times, ArrayList<Membership> members){
 
         ArrayList<Integer> crawlTidArray = new ArrayList<>();
 
@@ -24,13 +24,18 @@ public class TopFem {
             int x = crawlTidArray.get(i);
             for (int j = 0; j < times.size(); j++) {
                 if(x == times.get(j).getCrawlTid()){
-                    System.out.println(x + "\t" + times.get(j).getName());
+                    String cpr = times.get(j).getCpr();
+                    for (int k = 0; k < members.size(); k++) {
+                        if (cpr.equals(members.get(k).getCpr())){
+                            System.out.println(x + "\t" + members.get(k).getName());
+                        }
+                    }
                 }
             }
         }
     }
 
-    public static void butterflyTidSorter(ArrayList<Times> times){
+    public static void butterflyTidSorter(ArrayList<Times> times, ArrayList<Membership> members){
 
         ArrayList<Integer> butterflyTidArray = new ArrayList<>();
 
@@ -46,13 +51,18 @@ public class TopFem {
             int x = butterflyTidArray.get(i);
             for (int j = 0; j < times.size(); j++) {
                 if(x == times.get(j).getButterflyTid()){
-                    System.out.println(x + "\t" + times.get(j).getName());
+                    String cpr = times.get(j).getCpr();
+                    for (int k = 0; k < members.size(); k++) {
+                        if (cpr.equals(members.get(k).getCpr())){
+                            System.out.println(x + "\t" + members.get(k).getName());
+                        }
+                    }
                 }
             }
         }
     }
 
-    public static void brystTidSorter(ArrayList<Times> times){
+    public static void brystTidSorter(ArrayList<Times> times, ArrayList<Membership> members){
 
         ArrayList<Integer> brystTidArray = new ArrayList<>();
 
@@ -68,13 +78,18 @@ public class TopFem {
             int x = brystTidArray.get(i);
             for (int j = 0; j < times.size(); j++) {
                 if(x == times.get(j).getBrystTid()){
-                    System.out.println(x + "\t" + times.get(j).getName());
+                    String cpr = times.get(j).getCpr();
+                    for (int k = 0; k < members.size(); k++) {
+                        if (cpr.equals(members.get(k).getCpr())){
+                            System.out.println(x + "\t" + members.get(k).getName());
+                        }
+                    }
                 }
             }
         }
     }
 
-    public static void friTidSorter(ArrayList<Times> times){
+    public static void friTidSorter(ArrayList<Times> times, ArrayList<Membership> members){
 
         ArrayList<Integer> friTidArray = new ArrayList<>();
 
@@ -90,7 +105,12 @@ public class TopFem {
             int x = friTidArray.get(i);
             for (int j = 0; j < times.size(); j++) {
                 if(x == times.get(j).getFriTid()){
-                    System.out.println(x + "\t" + times.get(j).getName());
+                    String cpr = times.get(j).getCpr();
+                    for (int k = 0; k < members.size(); k++) {
+                        if (cpr.equals(members.get(k).getCpr())){
+                            System.out.println(x + "\t" + members.get(k).getName());
+                        }
+                    }
                 }
             }
         }
