@@ -15,7 +15,7 @@ public class FileReader {
         this.fileName = fileName;
     }
 
-    public void readMemberFile(ArrayList<Membership> members) throws IOException {
+    public void readMemberFile(ArrayList<Membership> members) throws IOException, ParseException {
 
         Scanner input = new Scanner(new File(fileName));
         input.nextLine();
@@ -25,7 +25,7 @@ public class FileReader {
         }
     }
 
-    public void readMemberLine(String text, ArrayList<Membership> members)throws IOException{
+    public void readMemberLine(String text, ArrayList<Membership> members)throws IOException, ParseException{
 
         Scanner lineScanner = new Scanner(text);
         String tempCPR;
@@ -70,7 +70,7 @@ public class FileReader {
         Scanner lineScanner = new Scanner(text);
 
         String tempCpr;
-        String tempName;
+//        String tempName;
         boolean tempCrawl;
         boolean tempBryst;
         boolean tempButterfly;
@@ -82,7 +82,7 @@ public class FileReader {
 
         while(lineScanner.hasNext()){
             tempCpr = lineScanner.next();
-            tempName = lineScanner.next();
+//            tempName = lineScanner.next();
             tempCrawl = lineScanner.nextBoolean();
             tempCrawlTid = lineScanner.nextInt();
             tempButterfly = lineScanner.nextBoolean();
@@ -92,7 +92,7 @@ public class FileReader {
             tempFri = lineScanner.nextBoolean();
             tempFriTid = lineScanner.nextInt();
 
-            times.add(new Times(tempCpr, tempName, tempCrawl, tempCrawlTid, tempButterfly, tempButterflyTid, tempBryst, tempBrystTid, tempFri, tempFriTid));
+            times.add(new Times(tempCpr,/* tempName,*/ tempCrawl, tempCrawlTid, tempButterfly, tempButterflyTid, tempBryst, tempBrystTid, tempFri, tempFriTid));
         }
     }
 }

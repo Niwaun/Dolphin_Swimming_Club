@@ -20,8 +20,7 @@ public class Membership extends Swimmer {
         setPrice();
     }
 
-    public Membership(String cpr, String name, int age, boolean active, boolean elite, boolean junior, boolean disc, int price){
-
+    public Membership(String cpr, String name, int age, boolean active, boolean elite, boolean junior, boolean disc, int price)throws ParseException{
         super(cpr, name, age);
         this.active = active;
         this.elite = elite;

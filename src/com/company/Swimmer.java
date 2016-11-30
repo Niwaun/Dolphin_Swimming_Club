@@ -4,29 +4,28 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class Swimmer {
-    private String cpr;
+public class Swimmer extends CPR{
+//    private String cpr;
     private String name;
     private int age;
     private String join;
     private String birthday;
 
     public Swimmer() throws ParseException{
-        setCpr();
+//        setCpr();
         setName();
         setBirthday();
         setAge();
         setJoin();
     }
 
-    public Swimmer(String cpr, String name, int age){
-
-        this.cpr = cpr;
+    public Swimmer(String cpr, String name, int age)throws ParseException{
+        super(cpr);
         this.name = name;
         this.age = age;
     }
 
-    public String getCpr() {
+    /*public String getCpr() {
         return cpr;
     }
 
@@ -43,7 +42,7 @@ public class Swimmer {
                 break;
         }
         this.cpr = cpr.substring(0,6) + '-' + cpr.substring(6,10);
-    }
+    }*/
 
     public int getAge() {
         return age;
@@ -102,10 +101,10 @@ public class Swimmer {
     }
 
     public void setBirthday() throws ParseException{
-        int year = Integer.parseInt(cpr.substring(4,6));
+        int year = Integer.parseInt(getCpr().substring(4,6));
         if (year >= 16){
-            this.birthday = cpr.substring(0,2) + '/' + cpr.substring(2,4) + "/19" + cpr.substring(4,6);
+            this.birthday = getCpr().substring(0,2) + '/' + getCpr().substring(2,4) + "/19" + getCpr().substring(4,6);
         }else
-            this.birthday = cpr.substring(0,2) + '/' + cpr.substring(2,4) + "/20" + cpr.substring(4,6);
+            this.birthday = getCpr().substring(0,2) + '/' + getCpr().substring(2,4) + "/20" + getCpr().substring(4,6);
     }
 }

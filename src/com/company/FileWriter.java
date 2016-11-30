@@ -45,7 +45,7 @@ public class FileWriter{
 
         for (int i = 0; i < times.size(); i++) {
             String cpr = times.get(i).getCpr();
-            String name = times.get(i).getName();
+//            String name = times.get(i).getName();
             boolean crawl = times.get(i).isCrawl();
             int crawlTid = times.get(i).getCrawlTid();
             boolean butterfly = times.get(i).isButterfly();
@@ -55,7 +55,7 @@ public class FileWriter{
             boolean fri = times.get(i).isFri();
             int friTid = times.get(i).getFriTid();
 
-            out.print(cpr +"\t"+ name +"\t"+ crawl +"\t"+ crawlTid +"\t"+ butterfly +"\t"+ butterflyTid +"\t"+ bryst +"\t"+ brystTid +"\t"+ fri +"\t"+ friTid);
+            out.print(cpr +"\t"+ /*name +"\t"+*/ crawl +"\t"+ crawlTid +"\t"+ butterfly +"\t"+ butterflyTid +"\t"+ bryst +"\t"+ brystTid +"\t"+ fri +"\t"+ friTid);
             out.println();
 
         }

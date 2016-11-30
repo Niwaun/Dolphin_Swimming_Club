@@ -6,24 +6,24 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) throws IOException, ParseException{
 //        Scanner input = new Scanner(System.in);
-//        ArrayList <Membership> members = new ArrayList<>();
-//        FileWriter fwMember = new FileWriter("virkerdet.txt");
-//        FileReader fr = new FileReader("virkerdet.txt");
-//        fr.readMemberFile(members);
-//        printSwimmerInfo(members);
-//        createMember(members);
-//        fw.saveMemberToFile(members);
+        ArrayList <Membership> members = new ArrayList<>();
+        FileWriter fwMember = new FileWriter("virkerdet.txt");
+        FileReader fr = new FileReader("virkerdet.txt");
+        fr.readMemberFile(members);
+        printSwimmerInfo(members);
+        createMember(members);
+        fwMember.saveMemberToFile(members);
 
 //        FileWriter fwTimes = new FileWriter("times.txt");
-        FileReader frTimes = new FileReader("times.txt");
-        ArrayList<Times> times = new ArrayList<>();
-        frTimes.readTimesFile(times);
+//        FileReader frTimes = new FileReader("times.txt");
+//        ArrayList<Times> times = new ArrayList<>();
+//        frTimes.readTimesFile(times);
 
 //        createTime(times);
 
-        crawlTidSorter(times);
+//        crawlTidSorter(times);
 
 //        fwTimes.saveTimeToFile(times);
 //        printTimesInfo(times);
@@ -110,7 +110,7 @@ public class Main {
             int x = crawlTid.get(i);
             for (int j = 0; j < times.size(); j++) {
                 if(x == times.get(j).getCrawlTid()){
-                    System.out.println(x + "\t" + times.get(j).getName());
+//                    System.out.println(x + "\t" + times.get(j).getName());
                 }
             }
         }
