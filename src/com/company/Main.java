@@ -10,6 +10,8 @@ public class Main {
 
         ArrayList <Membership> members = new ArrayList<>();
 
+        TopFem topFem = new TopFem();
+
         ArrayList<Times> crawl = new ArrayList<>();
         ArrayList<Times> butterfly = new ArrayList<>();
         ArrayList<Times> bryst = new ArrayList<>();
@@ -29,9 +31,8 @@ public class Main {
 
         frMembers.readMemberFile(members);
         frFri.readTimesFile(fri);
+        topFem.sortTimes(members, fri);
 
-        activeDiscipline(members, crawl, butterfly, bryst, fri);
-        fwFri.saveTimeToFile(fri, members);
     }
 
     public static void createMember(ArrayList <Membership> member) throws ParseException{
@@ -78,14 +79,14 @@ public class Main {
     public static void printTimesInfo(ArrayList <Times> times, ArrayList<Membership> members){
         for (int i = 0; i < times.size(); i++) {
 
-            System.out.println("CPR:         " + times.get(i).getCpr());
+            System.out.println("CPR:          " + times.get(i).getCpr());
             System.out.println("NAVN:         " + times.get(i).getName());
             System.out.println("DATO:         " + times.get(i).getDate());
             System.out.println("TID:          " + times.get(i).getTime());
         }
     }
 
-    public static void activeDiscipline(ArrayList<Membership> members,ArrayList<Times> crawl,
+    public static void enterDisciplineTime(ArrayList<Membership> members,ArrayList<Times> crawl,
                                         ArrayList<Times> butterfly, ArrayList<Times> bryst, ArrayList<Times> fri)
                                         throws ParseException{
 
@@ -109,7 +110,7 @@ public class Main {
 
         if (!bab) {
             System.out.println("Fejl i CPR. Prøv igen.");
-            activeDiscipline(members, crawl, butterfly, bryst, fri);
+            enterDisciplineTime(members, crawl, butterfly, bryst, fri);
         }
 
         int i = cprArray.indexOf(cpr);
@@ -147,7 +148,7 @@ public class Main {
             }
         } else{
             System.out.println(name + " er ikke elite.");
-            activeDiscipline(members, crawl, butterfly, bryst, fri);
+            enterDisciplineTime(members, crawl, butterfly, bryst, fri);
         }
 
     }

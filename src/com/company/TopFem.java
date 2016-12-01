@@ -8,15 +8,36 @@ import java.util.Collections;
  */
 public class TopFem {
 
-//    public static void crawlTidSorter(ArrayList<Membership> members){
-//
-//        ArrayList<Integer> crawlTidArray = new ArrayList<>();
-//
-//        for (int i = 0; i < members.size(); i++) {
-//            if(members.get(i).isCrawl() == true){
-//                crawlTidArray.add(members.get(i).getCrawlTid());
-//            }
-//        }
+    public static void sortTimes(ArrayList<Membership> members, ArrayList<Times> times) {
+
+        ArrayList<Integer> timeArray = new ArrayList<>();
+
+        for (int i = 0; i < times.size(); i++) {
+            timeArray.add(times.get(i).getTime());
+        }
+
+        String snr = "NR", sname = "NAME", stime = "TIME";
+        System.out.printf("%-3s%-16s%-8s\n", snr, sname, stime);
+
+        Collections.sort(timeArray);
+        for (int i = 0; i < 5; i++) {
+
+
+            int place = i+1;
+            String name = members.get(i).getName();
+            int time = timeArray.get(i);
+
+            System.out.printf("%-3d%-16s%-8d\n", place, name, time);
+        }
+    }
+}
+
+
+
+
+
+
+
 //        Collections.sort(crawlTidArray);
 //        crawlTidArray.subList(5,(crawlTidArray.size())).clear();
 //        System.out.println("De 5 hurtigste tider i crawl er: ");
@@ -119,4 +140,4 @@ public class TopFem {
 //            }
 //        }
 //    }
-}
+//}
