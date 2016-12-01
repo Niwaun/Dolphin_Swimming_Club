@@ -11,21 +11,21 @@ public class Main {
         ArrayList <Membership> members = new ArrayList<>();
         ArrayList <Times> times = new ArrayList<>();
         TopFem topFem = new TopFem();
-        FileWriter fwMember = new FileWriter("virkerdet.txt");
-        FileReader fr = new FileReader("virkerdet.txt");
+        FileWriter fwMember = new FileWriter("members.txt");
+        FileReader fr = new FileReader("members.txt");
         FileWriter fwTimes = new FileWriter("times.txt");
         FileReader frTimes = new FileReader("times.txt");
         fr.readMemberFile(members);
-        printSwimmerInfo(members);
+//        printSwimmerInfo(members);
         createMember(members);
         fwMember.saveMemberToFile(members);
 
 
-        frTimes.readTimesFile(times);
-        createTime(times);
-        printTimesInfo(times);
-        topFem.crawlTidSorter(times, members);
-        fwTimes.saveTimeToFile(times);
+//        frTimes.readTimesFile(times);
+//        createTime(times);
+//        printTimesInfo(times);
+//        topFem.crawlTidSorter(times, members);
+//        fwTimes.saveTimeToFile(times);
 
 
 

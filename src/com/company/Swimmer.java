@@ -6,14 +6,12 @@ import java.util.Scanner;
 public class Swimmer extends CPR{
     private String name;
     private int age;
-    private String join;
     private String birthday;
 
     public Swimmer() throws ParseException{
         setBirthday();
         setAge();
         setName();
-        setJoin();
     }
 
     public Swimmer(String cpr, String name, int age)throws ParseException{
@@ -27,24 +25,6 @@ public class Swimmer extends CPR{
     }
 
     public void setAge() throws ParseException{
-        /*Scanner input = new Scanner(System.in);
-
-        System.out.println("Hvor gammel er svømmeren?");
-        while(!input.hasNextInt()){
-            input.next();
-            System.out.println("Fejl! Skriv et tal");
-            System.out.println("Hvor gammel er svømmeren?");
-        }
-        age = input.nextInt();
-        while (age < 1){
-            System.out.println("Fejl! Skriv et tal over 0");
-            while (!input.hasNextInt()){
-                input.next();
-                System.out.println("Fejl! Skriv et tal");
-                System.out.println("Hvor gammel er svømmeren?");
-            }
-            age = input.nextInt();
-        }*/
         DateCalc dateCalc = new DateCalc(this.birthday);
         try {
             long years = ChronoUnit.YEARS.between(dateCalc.getBirthDate(),dateCalc.getJoinDate());
@@ -69,15 +49,6 @@ public class Swimmer extends CPR{
             System.out.println("Hvad er svømmerens navn?");
         }
         name = input.next();
-    }
-
-    public String getJoin() {
-        return join;
-    }
-
-    public void setJoin() throws ParseException{
-        DateCalc dateCalc = new DateCalc();
-        dateCalc.setJoinDate();
     }
 
     public String getBirthday() {

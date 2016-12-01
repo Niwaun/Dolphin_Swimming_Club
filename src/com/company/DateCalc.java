@@ -52,7 +52,6 @@ public class DateCalc {
 
     public String dateToString(LocalDate joinDate){
         DateTimeFormatter dft = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String join = "";
-        return join;
+        return dft.format(joinDate);
     }
 }

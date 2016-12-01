@@ -9,6 +9,7 @@ public class Membership extends Swimmer {
     private boolean junior;
     private boolean seniorDiscount;
     private int price;
+    private String join;
 
     public Membership() throws ParseException{
         setActive();
@@ -18,6 +19,7 @@ public class Membership extends Swimmer {
         setJunior();
         setSeniorDiscount();
         setPrice();
+        setJoin();
     }
 
     public Membership(String cpr, String name, int age, boolean active, boolean elite, boolean junior, boolean disc, int price)throws ParseException{
@@ -27,8 +29,6 @@ public class Membership extends Swimmer {
         this.junior = junior;
         this.seniorDiscount = disc;
         this.price = price;
-
-
     }
 
     public int getPrice() {
@@ -115,5 +115,14 @@ public class Membership extends Swimmer {
                     System.out.println("Fejl! Vælg enten Aktivt eller Passivt.");
             }
         }while (true);
+    }
+
+    public String getJoin() {
+        return join;
+    }
+
+    public void setJoin() throws ParseException{
+        DateCalc dateCalc = new DateCalc();
+        this.join = dateCalc.dateToString(dateCalc.today());
     }
 }
