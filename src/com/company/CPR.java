@@ -12,7 +12,7 @@ public class CPR {
     private String cpr;
 
     public CPR() throws ParseException{
-        setCpr();
+//        setCpr();
     }
 
     public CPR(String cpr) {
@@ -56,5 +56,9 @@ public class CPR {
             }
         }
         this.cpr = cpr.substring(0,6) + '-' + cpr.substring(6,10);
+    }
+
+    public void setCpr(String cpr){
+        this.cpr = cpr;
     }
 }

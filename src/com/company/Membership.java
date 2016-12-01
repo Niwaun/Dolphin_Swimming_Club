@@ -8,6 +8,12 @@ public class Membership extends Swimmer {
     private boolean elite;
     private boolean junior;
     private boolean seniorDiscount;
+
+    private boolean crawl = false;
+    private boolean butterfly = false;
+    private boolean bryst = false;
+    private boolean fri = false;
+
     private int price;
     private String join;
 
@@ -15,6 +21,9 @@ public class Membership extends Swimmer {
         setActive();
         if (active == true) {
             setElite();
+            if(elite == true){
+                chooseDisciplin();
+            }
         }
         setJunior();
         setSeniorDiscount();
@@ -22,10 +31,16 @@ public class Membership extends Swimmer {
         setJoin();
     }
 
-    public Membership(String cpr, String name, int age, boolean active, boolean elite, boolean junior, boolean disc, int price)throws ParseException{
+    public Membership(String cpr, String name, int age, boolean active, boolean elite, boolean crawl, boolean butterfly,
+                      boolean bryst, boolean fri, boolean junior, boolean disc, int price)throws ParseException{
+
         super(cpr, name, age);
         this.active = active;
         this.elite = elite;
+        this.crawl = crawl;
+        this.butterfly = butterfly;
+        this.bryst = bryst;
+        this.fri = fri;
         this.junior = junior;
         this.seniorDiscount = disc;
         this.price = price;
@@ -125,4 +140,69 @@ public class Membership extends Swimmer {
         DateCalc dateCalc = new DateCalc();
         this.join = dateCalc.dateToString(dateCalc.today());
     }
+
+    public void chooseDisciplin(){
+        Scanner input = new Scanner(System.in);
+
+        boolean quit = false;
+
+        do {
+
+            System.out.println("Hvilken disciplin er svømmeren aktiv i?");
+            System.out.println("1. Crawl\n2. Butterfly\n3. Bryst\n4. Fri");
+            String ans = input.nextLine().toLowerCase();
+
+            switch (ans) {
+                case "crawl":
+                    this.crawl = true;
+                    break;
+
+                case "butterfly":
+                    this.butterfly = true;
+                    break;
+
+                case "bryst":
+                    this.bryst = true;
+                    break;
+
+                case "fri":
+                    this.fri = true;
+                    break;
+
+                default:
+                    System.out.println("Der opstod en fejl. Prøv igen.\nIndtast navnet på disciplinen, tak.");
+            }
+            System.out.println("Vil du tilføje flere discipliner?");
+            ans = input.nextLine().toLowerCase();
+            switch(ans){
+                case "ja":
+                    quit = true;
+                    break;
+                case "nej":
+                    quit = false;
+                    break;
+                default:
+                    System.out.println("Der opstod en fejl. Prøv igen.\nSvar venligst med \"ja\" eller \"nej.\"");
+            }
+        } while(quit);
+    }
+
+
+    public boolean isCrawl() {
+        return crawl;
+    }
+
+    public boolean isButterfly() {
+        return butterfly;
+    }
+
+    public boolean isBryst() {
+        return bryst;
+    }
+
+    public boolean isFri() {
+        return fri;
+    }
+
+
 }

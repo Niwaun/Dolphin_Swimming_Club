@@ -11,6 +11,9 @@ public class FileReader {
 
     private String fileName;
 
+    public FileReader(){
+    }
+
     public FileReader(String fileName) throws IOException{
         this.fileName = fileName;
     }
@@ -35,6 +38,12 @@ public class FileReader {
         boolean tempElite;
         boolean tempJunior;
         boolean tempSeniorDisc;
+
+        boolean tempCrawl;
+        boolean tempButterfly;
+        boolean tempBryst;
+        boolean tempFri;
+
         int tempPrice;
 
 
@@ -45,11 +54,16 @@ public class FileReader {
             tempAge = lineScanner.nextInt();
             tempActive = lineScanner.nextBoolean();
             tempElite = lineScanner.nextBoolean();
+            tempCrawl = lineScanner.nextBoolean();
+            tempButterfly = lineScanner.nextBoolean();
+            tempBryst = lineScanner.nextBoolean();
+            tempFri = lineScanner.nextBoolean();
             tempJunior = lineScanner.nextBoolean();
             tempSeniorDisc = lineScanner.nextBoolean();
             tempPrice = lineScanner.nextInt();
 
-            members.add(new Membership(tempCPR, tempName, tempAge, tempActive, tempElite, tempJunior, tempSeniorDisc, tempPrice));
+            members.add(new Membership(tempCPR, tempName, tempAge, tempActive, tempElite, tempCrawl, tempButterfly,
+                    tempBryst, tempFri, tempJunior, tempSeniorDisc, tempPrice));
 
         }
     }
@@ -70,29 +84,17 @@ public class FileReader {
         Scanner lineScanner = new Scanner(text);
 
         String tempCpr;
-//        String tempName;
-        boolean tempCrawl;
-        boolean tempBryst;
-        boolean tempButterfly;
-        boolean tempFri;
-        int tempCrawlTid;
-        int tempBrystTid;
-        int tempButterflyTid;
-        int tempFriTid;
+        String tempNavn;
+        String tempDate;
+        int tempTime;
 
         while(lineScanner.hasNext()){
             tempCpr = lineScanner.next();
-//            tempName = lineScanner.next();
-            tempCrawl = lineScanner.nextBoolean();
-            tempCrawlTid = lineScanner.nextInt();
-            tempButterfly = lineScanner.nextBoolean();
-            tempButterflyTid = lineScanner.nextInt();
-            tempBryst = lineScanner.nextBoolean();
-            tempBrystTid = lineScanner.nextInt();
-            tempFri = lineScanner.nextBoolean();
-            tempFriTid = lineScanner.nextInt();
+            tempNavn = lineScanner.next();
+            tempDate = lineScanner.next();
+            tempTime = lineScanner.nextInt();
 
-            times.add(new Times(tempCpr,/* tempName,*/ tempCrawl, tempCrawlTid, tempButterfly, tempButterflyTid, tempBryst, tempBrystTid, tempFri, tempFriTid));
+            times.add(new Times(tempCpr, tempNavn, tempDate, tempTime));
         }
     }
 }
