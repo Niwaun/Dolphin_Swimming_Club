@@ -15,8 +15,19 @@ public class FileWriter{
 
         out = new PrintStream(new File(this.fileName));
 
-        out.print("ID\tNAVN\t\t\tALDER\tAKTIVT\tELITE\tJUNIOR\tSENIORDISCOUNT\tPRICE");
-        out.println();
+//        out.print("ID\tNAVN\t\t\tALDER\tAKTIVT\tELITE\tJUNIOR\tSENIORDISCOUNT\tPRICE");
+
+        String scpr2 = "CPR", snavn = "NAVN", salder = "ALDER", saktivt = "AKTIVT", selite = "ELITE", sjunior = "JUNIOR",
+                sseniordisc = "SENIORDISCOUNT", sprice = "PRICE";
+
+        out.printf("%-16s", scpr2);
+        out.printf("%-16s", snavn);
+        out.printf("%-10s", salder);
+        out.printf("%-10s", saktivt);
+        out.printf("%-10s", selite);
+        out.printf("%-10s", sjunior);
+        out.printf("%-17s", sseniordisc);
+        out.printf("%-10s\n", sprice);
 
 
         for (int i = 0; i < members.size(); i++) {
@@ -29,8 +40,17 @@ public class FileWriter{
             boolean junior = members.get(i).isJunior();
             boolean seniorDiscount = members.get(i).isSeniorDiscount();
 
-            out.print(cpr + "\t" + name + "\t\t\t" + age + "\t\t" + active + "\t" + elite + "\t" + junior + "\t" + seniorDiscount + "\t\t\t" + price);
-            out.println();
+//            out.print(cpr + "\t" + name + "\t\t\t" + age + "\t\t" + active + "\t" + elite + "\t" + junior + "\t" +
+//                    seniorDiscount + "\t\t\t" + price);
+
+            out.printf("%-16s", cpr);
+            out.printf("%-16s", name);
+            out.printf("%-10d", age);
+            out.printf("%-10s", convertToString(active));
+            out.printf("%-10s", convertToString(elite));
+            out.printf("%-10s", convertToString(junior));
+            out.printf("%-17s", convertToString(seniorDiscount));
+            out.printf("%-10d\n", price);
 
         }
     }
@@ -40,12 +60,20 @@ public class FileWriter{
         this.fileName = fileName;
         out = new PrintStream(new File(fileName));
 
-        out.print("CPR\tCRAWL\tTID\tBUTTERFLY\tTID\tBRYST\tTID\tFRI\tTID");
-        out.println();
+        String scpr = "CPR", scrawl = "CRAWL", sbutterfly = "BUTTERFLY", sbryst = "BRYST", sfri = "FRI", stid = "TID";
+
+        out.printf("%-16s",scpr);
+        out.printf("%-10s",scrawl);
+        out.printf("%-10s",stid);
+        out.printf("%-14s",sbutterfly);
+        out.printf("%-10s",stid);
+        out.printf("%-10s",sbryst);
+        out.printf("%-10s",stid);
+        out.printf("%-10s",sfri);
+        out.printf("%-10s\n",stid);
 
         for (int i = 0; i < times.size(); i++) {
             String cpr = times.get(i).getCpr();
-//            String name = times.get(i).getName();
             boolean crawl = times.get(i).isCrawl();
             int crawlTid = times.get(i).getCrawlTid();
             boolean butterfly = times.get(i).isButterfly();
@@ -55,10 +83,25 @@ public class FileWriter{
             boolean fri = times.get(i).isFri();
             int friTid = times.get(i).getFriTid();
 
-            out.print(cpr +"\t"+ /*name +"\t"+*/ crawl +"\t"+ crawlTid +"\t"+ butterfly +"\t"+ butterflyTid +"\t"+ bryst +"\t"+ brystTid +"\t"+ fri +"\t"+ friTid);
-            out.println();
+            out.printf("%-16s",cpr);
+            out.printf("%-10s",convertToString(crawl));
+            out.printf("%-10d",crawlTid);
+            out.printf("%-14s",convertToString(butterfly));
+            out.printf("%-10d",butterflyTid);
+            out.printf("%-10s",convertToString(bryst));
+            out.printf("%-10d",brystTid);
+            out.printf("%-10s",convertToString(fri));
+            out.printf("%-10d\n",friTid);
 
         }
 
+    }
+
+    public String convertToString(boolean x){
+
+        if(x == true){
+            return "true";
+        }
+        return "false";
     }
 }
