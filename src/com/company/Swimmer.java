@@ -9,6 +9,7 @@ public class Swimmer extends CPR{
     private String birthday;
 
     public Swimmer() throws ParseException{
+        setCpr();
         setBirthday();
         setAge();
         setName();

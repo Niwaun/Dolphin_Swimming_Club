@@ -1,156 +1,139 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.util.*;
 
 
 public class Times extends CPR{
 
-    public Times() throws ParseException{
-        Scanner input = new Scanner(System.in);
+    private String name;
+    private String date;
+    private int time;
 
-        boolean quit = true;
-
-        while(quit){
-
-            System.out.println("Hvilken disciplin?");
-            System.out.println("1. Crawl\n2. Butterfly\n3. Bryst\n4. Fri\nTryk q for at afslutte");
-            String ans = input.nextLine().toLowerCase();
-
-            switch(ans){
-                case "crawl":
-                    this.crawl = true;
-                    setCrawlTid();
-                    break;
-
-                case "butterfly":
-                    this.butterfly = true;
-                    setButterflyTid();
-                    break;
-
-                case "bryst":
-                    this.bryst = true;
-                    setBrystTid();
-                    break;
-
-                case "fri":
-                    this.fri = true;
-                    setFriTid();
-                    break;
-
-                case "q":
-                    quit = false;
-                    break;
-
-                default:
-                    System.out.println("Der opstod en fejl. Prøv igen.\nIndtast navnet på disciplinen, tak.");
-
-            }
-        }
+    public Times(ArrayList<Times> times, String name, String cpr) throws ParseException {
+        addTimeToDiscipline(times);
+        setName(name);
+        setCpr(cpr);
+        setDate();
     }
 
-    public Times(String cpr, boolean crawl, int ctid, boolean butterfly, int btid, boolean bryst, int brtid, boolean fri, int ftid) throws ParseException{
+    public Times() throws ParseException{
+
+    }
+
+    public Times(String cpr, String name, String date, int time) throws ParseException{
+
         super(cpr);
-        this.crawl = crawl;
-        this.butterfly = butterfly;
-        this.bryst = bryst;
-        this.fri = fri;
-        this.crawlTid = ctid;
-        this.butterflyTid = btid;
-        this.brystTid = brtid;
-        this.friTid = ftid;
+
+        this.name = name;
+        this.date = date;
+        this.time = time;
+
     }
 
     Scanner input = new Scanner(System.in);
 
-    private boolean crawl = false;
-    private boolean butterfly = false;
-    private boolean bryst = false;
-    private boolean fri = false;
-
-    private int crawlTid = 0;       //Alle tider er i sekunder til en start
-    private int butterflyTid = 0;   //Alle tider er i sekunder til en start
-    private int brystTid = 0;       //Alle tider er i sekunder til en start
-    private int friTid = 0;         //Alle tider er i sekunder til en start
-
-
-    public boolean isCrawl() {
-        return crawl;
+    public int getTime() {
+        return time;
     }
 
-
-    public boolean isButterfly() {
-        return butterfly;
+    public String getDate() {
+        return date;
     }
 
-    public boolean isBryst() {
-        return bryst;
+    public String getName() {
+        return name;
     }
 
-    public boolean isFri() {
-        return fri;
-    }
+    public void addTimeToDiscipline(ArrayList<Times> times) throws ParseException {
 
-    //Her starter getters/setter for tid
-    public int getCrawlTid() {
-        return crawlTid;
-    }
-
-    public void setCrawlTid() {
-
-        Scanner input = new Scanner(System.in);
         System.out.println("Hvad var svømmerens tid? (i sekunder)");
-        while(!input.hasNextInt()){
+        while (!input.hasNextInt()) {
             input.next();
             System.out.println("Der opstod en fejl.\nPrøv igen. Husk at skrive hele tal i sekunder");
             System.out.println("Hvad var svømmerens tid? (i sekunder");
         }
-
-        this.crawlTid = input.nextInt();
+        time = input.nextInt();
     }
 
-    public int getButterflyTid() {
-        return butterflyTid;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setButterflyTid() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Hvad var svømmerens tid? (i sekunder)");
-        while(!input.hasNextInt()){
-            input.next();
-            System.out.println("Der opstod en fejl.\nPrøv igen. Husk at skrive hele tal i sekunder");
-            System.out.println("Hvad var svømmerens tid? (i sekunder");
-        }
-        this.butterflyTid = input.nextInt();
+    public void setDate() throws ParseException {
+        DateCalc dateCalc = new DateCalc();
+        this.date = dateCalc.dateToString(dateCalc.today());
     }
 
-    public int getBrystTid() {
-        return brystTid;
-    }
+    //        do {
+//            System.out.println("Inden for hvilken disciplin har svømmeren fået en tid?");
+//            String ans = input.nextLine().toLowerCase();
+//
+//            switch (ans) {
+//                case "crawl":
+//                    System.out.println("Hvad var svømmerens tid? (i sekunder)");
+//                    while (!input.hasNextInt()) {
+//                        input.next();
+//                        System.out.println("Der opstod en fejl.\nPrøv igen. Husk at skrive hele tal i sekunder");
+//                        System.out.println("Hvad var svømmerens tid? (i sekunder");
+//                    }
+//                    time = input.nextInt();
+//                    crawl.add(new Times(time));
+//
+//                    break;
+//
+//                case "butterfly":
+//                    System.out.println("Hvad var svømmerens tid? (i sekunder)");
+//                    while (!input.hasNextInt()) {
+//                        input.next();
+//                        System.out.println("Der opstod en fejl.\nPrøv igen. Husk at skrive hele tal i sekunder");
+//                        System.out.println("Hvad var svømmerens tid? (i sekunder");
+//                    }
+//                    time = input.nextInt();
+//                    butterfly.add(new Times(time));
+//
+//                    break;
+//
+//                case "bryst":
+//                    System.out.println("Hvad var svømmerens tid? (i sekunder)");
+//                    while (!input.hasNextInt()) {
+//                        input.next();
+//                        System.out.println("Der opstod en fejl.\nPrøv igen. Husk at skrive hele tal i sekunder");
+//                        System.out.println("Hvad var svømmerens tid? (i sekunder");
+//                    }
+//                    time = input.nextInt();
+//                    bryst.add(new Times(time));
+//
+//                    break;
+//
+//                case "fri":
+//                    System.out.println("Hvad var svømmerens tid? (i sekunder)");
+//                    while (!input.hasNextInt()) {
+//                        input.next();
+//                        System.out.println("Der opstod en fejl.\nPrøv igen. Husk at skrive hele tal i sekunder");
+//                        System.out.println("Hvad var svømmerens tid? (i sekunder");
+//                    }
+//                    time = input.nextInt();
+//                    fri.add(new Times(time));
+//
+//                    break;
+//
+//                default:
+//                    System.out.println("Fejl. Prøv igen");
+//                    break;
+//            }
+//
+//            System.out.println("Vil du tilføje flere discipliner?");
+//            ans = input.nextLine().toLowerCase();
+//            switch(ans){
+//                case "ja":
+//                    break;
+//                case "nej":
+//                    return;
+//                default:
+//                    System.out.println("Der opstod en fejl. Prøv igen.\nSvar venligst med \"ja\" eller \"nej.\"");
+//            }
+//        } while (true);
 
-    public void setBrystTid() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Hvad var svømmerens tid? (i sekunder)");
-        while(!input.hasNextInt()){
-            input.next();
-            System.out.println("Der opstod en fejl.\nPrøv igen. Husk at skrive hele tal i sekunder");
-            System.out.println("Hvad var svømmerens tid? (i sekunder");
-        }
-        this.brystTid = input.nextInt();
-    }
-
-    public int getFriTid() {
-        return friTid;
-    }
-
-    public void setFriTid() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Hvad var svømmerens tid? (i sekunder)");
-        while(!input.hasNextInt()){
-            input.next();
-            System.out.println("Der opstod en fejl.\nPrøv igen. Husk at skrive hele tal i sekunder");
-            System.out.println("Hvad var svømmerens tid? (i sekunder");
-        }
-        this.friTid = input.nextInt();
-    }
 }

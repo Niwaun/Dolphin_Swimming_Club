@@ -7,46 +7,31 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws IOException, ParseException{
-        Scanner input = new Scanner(System.in);
+
         ArrayList <Membership> members = new ArrayList<>();
-        ArrayList <Times> times = new ArrayList<>();
-        TopFem topFem = new TopFem();
-        FileWriter fwMember = new FileWriter("members.txt");
-        FileReader fr = new FileReader("members.txt");
-        FileWriter fwTimes = new FileWriter("times.txt");
-        FileReader frTimes = new FileReader("times.txt");
-        fr.readMemberFile(members);
-//        printSwimmerInfo(members);
-//        createMember(members);
-//        fwMember.saveMemberToFile(members);
-        System.out.println(members.contains("161192-2937"));
 
-//        frTimes.readTimesFile(times);
-//        createTime(times);
-//        printTimesInfo(times);
-//        topFem.crawlTidSorter(times, members);
-//        fwTimes.saveTimeToFile(times);
+        ArrayList<Times> crawl = new ArrayList<>();
+        ArrayList<Times> butterfly = new ArrayList<>();
+        ArrayList<Times> bryst = new ArrayList<>();
+        ArrayList<Times> fri = new ArrayList<>();
 
+        FileWriter fwCrawl = new FileWriter("crawl.txt");
+        FileWriter fwButterfly = new FileWriter("butterfly.txt");
+        FileWriter fwBryst = new FileWriter("bryst.txt");
+        FileWriter fwFri = new FileWriter("fri.txt");
+        FileWriter fwMembers = new FileWriter("members.txt");
 
+        FileReader frCrawl = new FileReader("crawl.txt");
+        FileReader frButterfly = new FileReader("butterfly.txt");
+        FileReader frBryst = new FileReader("bryst.txt");
+        FileReader frFri = new FileReader("fri.txt");
+        FileReader frMembers = new FileReader("members.txt");
 
+        frMembers.readMemberFile(members);
+        frFri.readTimesFile(fri);
 
-//        ArrayList <User> users = new ArrayList<>();
-//        System.out.println("Velkommen til Dolphin Swimming Club");
-//        System.out.println("Username: ");
-//        System.out.println("Password: ");
-//        while (true) {
-//            createMember(members, members.size());
-//            createUser(users);
-//            printSwimmerInfo(members);
-//            saveUserToFile(users);
-//            System.out.println("quit?");
-//            switch (input.nextLine().toLowerCase()){
-//                case "yes":
-//                    return;
-//                default:
-//                    break;
-//            }
-//        }
+        activeDiscipline(members, crawl, butterfly, bryst, fri);
+        fwFri.saveTimeToFile(fri, members);
     }
 
     public static void createMember(ArrayList <Membership> member) throws ParseException{
@@ -57,8 +42,9 @@ public class Main {
         users.add(new User());
     }
 
-    public static void createTime(ArrayList <Times> times)throws ParseException{
-        times.add(new Times());
+    public static void createTime(ArrayList<Times> times, String a, String b) throws ParseException{
+
+        times.add(new Times(times, a, b));
     }
 
     public static void printSwimmerInfo(ArrayList <Membership> member){
@@ -68,6 +54,10 @@ public class Main {
                 System.out.println("Age:        " + member.get(i).getAge());
                 System.out.println("Active:     " + member.get(i).isActive());
                 System.out.println("Elite:      " + member.get(i).isElite());
+                System.out.println("Crawl:      " + member.get(i).isCrawl());
+                System.out.println("Bryst:      " + member.get(i).isBryst());
+                System.out.println("Butterfly:  " + member.get(i).isButterfly());
+                System.out.println("Fri:        " + member.get(i).isFri());
                 System.out.println("Junior:     " + member.get(i).isJunior());
                 System.out.println("Discount:   " + member.get(i).isSeniorDiscount());
                 System.out.println("Price:      " + member.get(i).getPrice());
@@ -84,16 +74,81 @@ public class Main {
         }
     }
 
-    public static void printTimesInfo(ArrayList <Times> times){
+
+    public static void printTimesInfo(ArrayList <Times> times, ArrayList<Membership> members){
         for (int i = 0; i < times.size(); i++) {
-            System.out.println("Crawl:       " + times.get(i).isCrawl());
-            System.out.println("Tid:         " + times.get(i).getCrawlTid());
-            System.out.println("Bryst:       " + times.get(i).isBryst());
-            System.out.println("Tid:         " + times.get(i).getBrystTid());
-            System.out.println("Butterfly:   " + times.get(i).isButterfly());
-            System.out.println("Tid:         " + times.get(i).getButterflyTid());
-            System.out.println("Fri:         " + times.get(i).isFri());
-            System.out.println("Tid          " + times.get(i).getFriTid());
+
+            System.out.println("CPR:         " + times.get(i).getCpr());
+            System.out.println("NAVN:         " + times.get(i).getName());
+            System.out.println("DATO:         " + times.get(i).getDate());
+            System.out.println("TID:          " + times.get(i).getTime());
         }
+    }
+
+    public static void activeDiscipline(ArrayList<Membership> members,ArrayList<Times> crawl,
+                                        ArrayList<Times> butterfly, ArrayList<Times> bryst, ArrayList<Times> fri)
+                                        throws ParseException{
+
+        ArrayList<String> cprArray = new ArrayList<>();
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Indtast cpr");
+        String cpr = input.next();
+        cpr = cpr.substring(0, 6) + '-' + cpr.substring(6, 10);
+
+
+        String x;
+
+        for (int i = 0; i < members.size(); i++) {
+
+            x = members.get(i).getCpr();
+            cprArray.add(x);
+        }
+
+        boolean bab = cprArray.contains(cpr);
+
+        if (!bab) {
+            System.out.println("Fejl i CPR. Prøv igen.");
+            activeDiscipline(members, crawl, butterfly, bryst, fri);
+        }
+
+        int i = cprArray.indexOf(cpr);
+        String name = members.get(i).getName();
+        if(members.get(i).isElite()){
+
+            System.out.println(name + " er aktiv i: ");
+
+            if (members.get(i).isCrawl()) {
+                System.out.println("Crawl.");
+            } if (members.get(i).isButterfly()) {
+                System.out.println("Butterfly.");
+            } if (members.get(i).isBryst()) {
+                System.out.println("Bryst");
+            } if (members.get(i).isFri()) {
+                System.out.println("Fri");
+            }
+            System.out.println("Vælg disciplin");
+            String disciplin = input.next().toLowerCase();
+            switch(disciplin){
+                case "crawl":
+                    createTime(crawl, name, cpr);
+                    break;
+                case "butterfly":
+                    createTime(butterfly, name, cpr);
+                    break;
+                case "bryst":
+                    createTime(bryst, name, cpr);
+                    break;
+                case "fri":
+                    createTime(fri, name, cpr);
+                    break;
+                default:
+                    System.out.println("Fejl. Kan ikke finde disciplin.\nPrøv igen.");
+            }
+        } else{
+            System.out.println(name + " er ikke elite.");
+            activeDiscipline(members, crawl, butterfly, bryst, fri);
+        }
+
     }
 }
