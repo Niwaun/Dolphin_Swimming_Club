@@ -18,7 +18,6 @@ public class Main {
         fr.readMemberFile(members);
 //        printSwimmerInfo(members);
 //        createMember(members);
-
 //        fwMember.saveMemberToFile(members);
         System.out.println(members.contains("161192-2937"));
 
