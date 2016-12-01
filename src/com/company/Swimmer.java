@@ -44,12 +44,12 @@ public class Swimmer extends CPR{
     public void setName() {
         Scanner input = new Scanner(System.in);
         System.out.println("Hvad er svømmerens navn?");
-        while (input.hasNextInt()){
-            input.next();
+        String name;
+        while (!isAlpha(name = input.next())){
             System.out.println("Fejl! Skriv et navn");
             System.out.println("Hvad er svømmerens navn?");
         }
-        name = input.next();
+        this.name = name;
     }
 
     public String getBirthday() {
@@ -62,5 +62,16 @@ public class Swimmer extends CPR{
             this.birthday = getCpr().substring(0,2) + '/' + getCpr().substring(2,4) + "/19" + getCpr().substring(4,6);
         }else
             this.birthday = getCpr().substring(0,2) + '/' + getCpr().substring(2,4) + "/20" + getCpr().substring(4,6);
+    }
+
+    public boolean isAlpha(String name) {
+        char[] chars = name.toCharArray();
+
+        for (char c : chars) {
+            if(!Character.isLetter(c)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

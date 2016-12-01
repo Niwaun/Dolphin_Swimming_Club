@@ -15,6 +15,13 @@ public class User {
         setRole();
     }
 
+    public User(String name, String username, String password, String role) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
     public String getName() {
         return name;
     }
@@ -22,11 +29,12 @@ public class User {
     public void setName() {
         Scanner input = new Scanner(System.in);
         System.out.println("Indtast navnet på brugeren:");
-        while (input.hasNextInt()){
-            input.next();
+        String name;
+        while (!isAlpha(name = input.next())){
             System.out.println("Fejl! Skriv et navn");
+            System.out.println("Indstast navnet på brugeren:");
         }
-        name = input.next();
+        this.name = name;
     }
 
     public String getUsername() {
@@ -76,5 +84,16 @@ public class User {
                     System.out.println("Prøv igen");
             }
         }while (true);
+    }
+
+    public boolean isAlpha(String name) {
+        char[] chars = name.toCharArray();
+
+        for (char c : chars) {
+            if(!Character.isLetter(c)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
