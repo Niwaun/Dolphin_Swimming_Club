@@ -22,32 +22,20 @@ public class Main {
         FileWriter fwBryst = new FileWriter("bryst.txt");
         FileWriter fwFri = new FileWriter("fri.txt");
         FileWriter fwMembers = new FileWriter("members.txt");
-        FileWriter fwUser = new FileWriter("users,txt");
+        FileWriter fwUser = new FileWriter("users.txt");
 
         FileReader frCrawl = new FileReader("crawl.txt");
         FileReader frButterfly = new FileReader("butterfly.txt");
         FileReader frBryst = new FileReader("bryst.txt");
         FileReader frFri = new FileReader("fri.txt");
         FileReader frMembers = new FileReader("members.txt");
-        FileWriter frUser = new FileWriter("users,txt");
+        FileReader frUser = new FileReader("users.txt");
 
-        Scanner input = new Scanner(System.in);
-        createUser(users);
+
+        frUser.readUsersFile(users);
         System.out.println("Velkommen til \"The Dolphin\"");
-        System.out.println("Brugernavn:");
-        String username = input.next();
-        System.out.println("Kodeord:");
-        String password = input.next();
-        for (int i = 0; i < users.size(); i++) {
-            if (username.equals(users.get(i).getUsername())){
-                if (password.equals(users.get(i).getPassword())){
-                    System.out.println("Hej " + users.get(i).getName());
-                    return;
-                }
-            }else
-                System.out.println("Fejl! Brugernavn eller Kodeord er forkert");
-        }
-
+        printUserInfo(users);
+        login(users);
     }
 
     public static void createMember(ArrayList <Membership> member) throws ParseException{
@@ -167,5 +155,31 @@ public class Main {
             enterDisciplineTime(members, crawl, butterfly, bryst, fri);
         }
 
+    }
+
+    public static void login(ArrayList<User> users) {
+        Scanner input = new Scanner(System.in);
+        String username = "";
+        String password = "";
+
+        do {
+            System.out.println("Brugernavn:");
+            username = input.next();
+            for (int i = 0; i < users.size(); i++) {
+                if (username.equals(users.get(i).getUsername())){
+                    do {
+                        System.out.println("Kodeord:");
+                        password = input.next();
+                        if (password.equals(users.get(i).getPassword())){
+                            System.out.println("Hej " + users.get(i).getName());
+                            return;
+                        } else {
+                            System.out.println("Fejl! Kodeordet er forkert");
+                        }
+                    }while (true);
+                }
+            }
+            System.out.println("Fejl! Brugernavnet findes ikke");
+        }while (true);
     }
 }

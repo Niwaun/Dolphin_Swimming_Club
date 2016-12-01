@@ -84,17 +84,44 @@ public class FileReader {
         Scanner lineScanner = new Scanner(text);
 
         String tempCpr;
-        String tempNavn;
+        String tempName;
         String tempDate;
         int tempTime;
 
         while(lineScanner.hasNext()){
             tempCpr = lineScanner.next();
-            tempNavn = lineScanner.next();
+            tempName = lineScanner.next();
             tempDate = lineScanner.next();
             tempTime = lineScanner.nextInt();
 
-            times.add(new Times(tempCpr, tempNavn, tempDate, tempTime));
+            times.add(new Times(tempCpr, tempName, tempDate, tempTime));
+        }
+    }
+
+    public void readUsersFile(ArrayList<User> users) throws IOException{
+        Scanner input = new Scanner(new File(fileName));
+        input.nextLine();
+        while (input.hasNextLine()){
+            String text = input.nextLine();
+            readUserLine(text,users);
+        }
+    }
+
+    public void readUserLine(String text, ArrayList<User> users) throws IOException{
+        Scanner lineScanner = new Scanner(text);
+
+        String tempName;
+        String tempUsername;
+        String tempPassword;
+        String tempRole;
+
+        while(lineScanner.hasNext()){
+            tempName = lineScanner.next();
+            tempUsername = lineScanner.next();
+            tempPassword = lineScanner.next();
+            tempRole = lineScanner.next();
+
+            users.add(new User(tempName,tempUsername,tempPassword,tempRole));
         }
     }
 }

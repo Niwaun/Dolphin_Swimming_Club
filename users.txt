@@ -1,0 +1,4 @@
+NAVN            USERNAME        PASSWORD        ROLLE           
+Alexander       Niwaun          1234            Admin
+Anders          Monster         1234            Træner
+Thor            Thor            1234            Treasurer
