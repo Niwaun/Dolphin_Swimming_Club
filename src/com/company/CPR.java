@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -41,8 +42,18 @@ public class CPR {
             } else if(Pattern.matches("[a-zA-Z]+", cpr)) {
                     System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
                     System.out.println("Hvad er svømmerens CPR nr?");
-            } else
-                break;
+            } else {
+                int day = Integer.parseInt(cpr.substring(0,2));
+                int mounth = Integer.parseInt(cpr.substring(2,4));
+                if (day > 31){
+                    System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
+                    System.out.println("Hvad er svømmerens CPR nr?");
+                } else if (mounth > 12){
+                    System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
+                    System.out.println("Hvad er svømmerens CPR nr?");
+                } else
+                    break;
+            }
         }
         this.cpr = cpr.substring(0,6) + '-' + cpr.substring(6,10);
     }

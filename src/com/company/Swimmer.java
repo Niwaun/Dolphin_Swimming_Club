@@ -2,20 +2,17 @@ package com.company;
 import java.text.ParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Swimmer extends CPR{
-//    private String cpr;
     private String name;
     private int age;
     private String join;
     private String birthday;
 
     public Swimmer() throws ParseException{
-//        setCpr();
-        setName();
         setBirthday();
         setAge();
+        setName();
         setJoin();
     }
 
@@ -24,25 +21,6 @@ public class Swimmer extends CPR{
         this.name = name;
         this.age = age;
     }
-
-    /*public String getCpr() {
-        return cpr;
-    }
-
-    public void setCpr() {
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Hvad er svømmerens CPR nr?");
-        while (input.hasNext()){
-            cpr = input.nextLine();
-            if(Pattern.matches("[a-zA-Z]+", cpr) && cpr.length() != 10){
-                System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
-                System.out.println("Hvad er svømmerens CPR nr?");
-            } else
-                break;
-        }
-        this.cpr = cpr.substring(0,6) + '-' + cpr.substring(6,10);
-    }*/
 
     public int getAge() {
         return age;
@@ -68,8 +46,14 @@ public class Swimmer extends CPR{
             age = input.nextInt();
         }*/
         DateCalc dateCalc = new DateCalc(this.birthday);
-        long years = ChronoUnit.YEARS.between(dateCalc.getBirthDate(),dateCalc.getJoinDate());
-        this.age = (int) years;
+        try {
+            long years = ChronoUnit.YEARS.between(dateCalc.getBirthDate(),dateCalc.getJoinDate());
+            this.age = (int) years;
+        } catch (Exception e){
+            System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
+            setCpr();
+            setAge();
+        }
     }
 
     public String getName() {
@@ -92,7 +76,7 @@ public class Swimmer extends CPR{
     }
 
     public void setJoin() throws ParseException{
-        DateCalc dateCalc = new DateCalc(this.birthday);
+        DateCalc dateCalc = new DateCalc();
         dateCalc.setJoinDate();
     }
 

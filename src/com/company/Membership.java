@@ -116,9 +116,4 @@ public class Membership extends Swimmer {
             }
         }while (true);
     }
-
-    public void setFromFile(){
-
-
-    }
 }

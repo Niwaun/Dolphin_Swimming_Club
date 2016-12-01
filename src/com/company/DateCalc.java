@@ -1,10 +1,8 @@
 package com.company;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 /**
  * Created by Niwaun on 29-11-2016.
@@ -12,10 +10,14 @@ import java.util.Date;
 public class DateCalc {
     private LocalDate joinDate;
     private LocalDate birthDate;
+    private LocalDate paymentDate;
+
+    public DateCalc() throws ParseException{
+    }
 
     public DateCalc(String birthday) throws ParseException{
-        setJoinDate();
         setBirthDate(birthday);
+        setJoinDate();
     }
 
     public LocalDate getJoinDate() {
@@ -23,8 +25,7 @@ public class DateCalc {
     }
 
     public void setJoinDate() throws ParseException{
-        LocalDate localDate = LocalDate.now();
-        joinDate = localDate;
+        this.joinDate = today();
     }
 
     public LocalDate getBirthDate() {
@@ -32,7 +33,26 @@ public class DateCalc {
     }
 
     public void setBirthDate(String birthday) throws ParseException{
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        birthDate = LocalDate.parse(birthday, dateTimeFormatter);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        birthDate = LocalDate.parse(birthday, dtf);
+    }
+
+    public LocalDate getPaymentDate() {
+        return paymentDate;
+    }
+
+    public void setPaymentDate(LocalDate paymentDate) {
+        this.paymentDate = today();
+    }
+
+    public LocalDate today(){
+        LocalDate localDate = LocalDate.now();
+        return localDate;
+    }
+
+    public String dateToString(LocalDate joinDate){
+        DateTimeFormatter dft = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String join = "";
+        return join;
     }
 }
