@@ -7,10 +7,10 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws IOException, ParseException{
+        ArrayList<User> users = new ArrayList<>();
+        ArrayList<Membership> members = new ArrayList<>();
 
-        ArrayList <Membership> members = new ArrayList<>();
-
-        TopFem topFem = new TopFem();
+        TopFive topFive = new TopFive();
 
         ArrayList<Times> crawl = new ArrayList<>();
         ArrayList<Times> butterfly = new ArrayList<>();
@@ -22,16 +22,31 @@ public class Main {
         FileWriter fwBryst = new FileWriter("bryst.txt");
         FileWriter fwFri = new FileWriter("fri.txt");
         FileWriter fwMembers = new FileWriter("members.txt");
+        FileWriter fwUser = new FileWriter("users,txt");
 
         FileReader frCrawl = new FileReader("crawl.txt");
         FileReader frButterfly = new FileReader("butterfly.txt");
         FileReader frBryst = new FileReader("bryst.txt");
         FileReader frFri = new FileReader("fri.txt");
         FileReader frMembers = new FileReader("members.txt");
+        FileWriter frUser = new FileWriter("users,txt");
 
-        frMembers.readMemberFile(members);
-        frFri.readTimesFile(fri);
-        topFem.sortTimes(members, fri);
+        Scanner input = new Scanner(System.in);
+        createUser(users);
+        System.out.println("Velkommen til \"The Dolphin\"");
+        System.out.println("Brugernavn:");
+        String username = input.next();
+        System.out.println("Kodeord:");
+        String password = input.next();
+        for (int i = 0; i < users.size(); i++) {
+            if (username.equals(users.get(i).getUsername())){
+                if (password.equals(users.get(i).getPassword())){
+                    System.out.println("Hej " + users.get(i).getName());
+                    return;
+                }
+            }else
+                System.out.println("Fejl! Brugernavn eller Kodeord er forkert");
+        }
 
     }
 
@@ -68,6 +83,7 @@ public class Main {
 
     public static void printUserInfo(ArrayList <User> users){
         for (int i = 0; i < users.size(); i++) {
+            System.out.println("Name:       " + users.get(i).getName());
             System.out.println("Username:   " + users.get(i).getUsername());
             System.out.println("Password:   " + users.get(i).getPassword());
             System.out.println("Role:       " + users.get(i).getRole());

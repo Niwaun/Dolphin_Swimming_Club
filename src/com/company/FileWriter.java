@@ -18,22 +18,22 @@ public class FileWriter{
 
         out = new PrintStream(new File(this.fileName));
 
-        String scpr2 = "CPR", snavn = "NAVN", salder = "ALDER", saktivt = "AKTIVT", selite = "ELITE", sjunior = "JUNIOR",
-                sseniordisc = "SEN.DISC", sprice = "PRICE", scrawl = "CRAWL", sbutterfly = "BUTTERFLY",
-                sbryst = "BRYST", sfri = "FRI";
+        String tCpr = "CPR", tName = "NAVN", tAge = "ALDER", tActive = "AKTIVT", tElite = "ELITE", tJuinor = "JUNIOR",
+                tSenior = "SEN.DISC", tPrice = "PRICE", tCrawl = "CRAWL", tButterfly = "BUTTERFLY",
+                tBryst = "BRYST", tFri = "FRI";
 
-        out.printf("%-13s", scpr2);
-        out.printf("%-16s", snavn);
-        out.printf("%-10s", salder);
-        out.printf("%-10s", saktivt);
-        out.printf("%-10s", selite);
-        out.printf("%-10s", scrawl);
-        out.printf("%-10s", sbutterfly);
-        out.printf("%-10s", sbryst);
-        out.printf("%-10S", sfri);
-        out.printf("%-10s", sjunior);
-        out.printf("%-12", sseniordisc);
-        out.printf("%-10s\n", sprice);
+        out.printf("%-13s", tCpr);
+        out.printf("%-16s", tName);
+        out.printf("%-10s", tAge);
+        out.printf("%-10s", tActive);
+        out.printf("%-10s", tElite);
+        out.printf("%-10s", tCrawl);
+        out.printf("%-10s", tButterfly);
+        out.printf("%-10s", tBryst);
+        out.printf("%-10S", tFri);
+        out.printf("%-10s", tJuinor);
+        out.printf("%-12", tSenior);
+        out.printf("%-10s\n", tPrice);
 
 
         for (int i = 0; i < members.size(); i++) {
@@ -66,31 +66,53 @@ public class FileWriter{
         }
     }
 
-    public void saveTimeToFile(ArrayList<Times> times, ArrayList<Membership> members) throws IOException{
+    public void saveTimeToFile(ArrayList<Times> times) throws IOException{
 
         this.fileName = fileName;
         out = new PrintStream(new File(fileName));
 
-        String ccpr = "CPR", cname = "NAVN", cdate = "DATO", ctime = "TID";
-        out.printf("%-16s", ccpr);
-        out.printf("%-16s", cname);
-        out.printf("%-16s", cdate);
-        out.printf("%-16s\n", ctime);
+        String tCpr = "CPR", tName = "NAVN", tDate = "DATO", tTime = "TID";
+        out.printf("%-16s", tCpr);
+        out.printf("%-16s", tName);
+        out.printf("%-16s", tDate);
+        out.printf("%-16s\n", tTime);
 
         for (int i = 0; i < times.size(); i++) {
 
-            String tcpr = times.get(i).getCpr();
-            String tname = times.get(i).getName();
-            String tdate = times.get(i).getDate();
-            int ttime = times.get(i).getTime();
+            String cpr = times.get(i).getCpr();
+            String name = times.get(i).getName();
+            String date = times.get(i).getDate();
+            int time = times.get(i).getTime();
 
-            out.printf("%-16s", tcpr);
-            out.printf("%-16s", tname);
-            out.printf("%-16s", tdate);
-            out.printf("%-16d\n", ttime);
-
+            out.printf("%-16s", cpr);
+            out.printf("%-16s", name);
+            out.printf("%-16s", date);
+            out.printf("%-16d\n", time);
         }
 
+    }
+    
+    public void saveUserToFile(ArrayList<User> users) throws IOException{
+        this.fileName = fileName;
+        out = new PrintStream(new File(fileName));
+        
+        String tName = "NAVN", tUsername = "USERNAME", tPassword = "PASSWORD", tRole = "ROLLE";
+        out.printf("%-16s", tName);
+        out.printf("%-16s", tUsername);
+        out.printf("%-16s", tPassword);
+        out.printf("%-16s\n", tRole);
+
+        for (int i = 0; i < users.size(); i++) {
+            String name = users.get(i).getName();
+            String username = users.get(i).getUsername();
+            String password = users.get(i).getPassword();
+            String role = users.get(i).getRole();
+
+            out.printf("%-16s", name);
+            out.printf("%-16s", username);
+            out.printf("%-16s", password);
+            out.printf("%-16s\n", role);
+        }
     }
 
     public String convertToString(boolean x){

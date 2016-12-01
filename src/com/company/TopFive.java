@@ -6,7 +6,7 @@ import java.util.Collections;
 /**
  * Created by Anders on 30-Nov-16.
  */
-public class TopFem {
+public class TopFive {
 
     public static void sortTimes(ArrayList<Membership> members, ArrayList<Times> times) {
 

@@ -3,14 +3,30 @@ package com.company;
 import java.util.Scanner;
 
 public class User {
+    private String name;
     private String username;
     private String password;
     private String role;
 
     public User() {
+        setName();
         setUsername();
         setPassword();
         setRole();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Indtast navnet på brugeren:");
+        while (input.hasNextInt()){
+            input.next();
+            System.out.println("Fejl! Skriv et navn");
+        }
+        name = input.next();
     }
 
     public String getUsername() {
@@ -19,7 +35,7 @@ public class User {
 
     public void setUsername() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Hvad er brugernavnet?");
+        System.out.println("Indtast brugernavnet:");
         username = input.next();
     }
 
@@ -29,7 +45,7 @@ public class User {
 
     public void setPassword() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Hvad er kodeordet?");
+        System.out.println("Indtast kodeordet:");
         password = input.next();
     }
 
@@ -39,10 +55,13 @@ public class User {
 
     public void setRole() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Hvilken rolle skal brugeren have?");
-        System.out.println("1. Træner\n2. Bestyrrer\n3. Kasserer");
+        System.out.println("Vælg rolle:");
+        System.out.println("Admin\nTræner\nBestyrrer\nKasserer");
         do {
-            switch (input.nextLine().toLowerCase()) {
+            switch (input.next().toLowerCase()) {
+                case "admin":
+                    role = "Admin";
+                    return;
                 case "træner":
                     role = "Coach";
                     return;
