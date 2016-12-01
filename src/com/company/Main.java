@@ -7,7 +7,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws IOException, ParseException{
-//        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         ArrayList <Membership> members = new ArrayList<>();
         ArrayList <Times> times = new ArrayList<>();
         TopFem topFem = new TopFem();
@@ -17,9 +17,9 @@ public class Main {
         FileReader frTimes = new FileReader("times.txt");
         fr.readMemberFile(members);
 //        printSwimmerInfo(members);
-        createMember(members);
-        fwMember.saveMemberToFile(members);
-
+//        createMember(members);
+//        fwMember.saveMemberToFile(members);
+        System.out.println(members.contains("161192-2937"));
 
 //        frTimes.readTimesFile(times);
 //        createTime(times);
