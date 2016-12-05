@@ -157,7 +157,7 @@ public class Main {
 
     }
 
-    public static void login(ArrayList<User> users) {
+    public static String login(ArrayList<User> users) {
         Scanner input = new Scanner(System.in);
         String username = "";
         String password = "";
@@ -172,7 +172,7 @@ public class Main {
                         password = input.next();
                         if (password.equals(users.get(i).getPassword())){
                             System.out.println("Hej " + users.get(i).getName());
-                            return;
+                            return users.get(i).getRole();
                         } else {
                             System.out.println("Fejl! Kodeordet er forkert");
                         }
