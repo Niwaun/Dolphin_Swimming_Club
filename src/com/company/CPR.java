@@ -1,7 +1,5 @@
 package com.company;
 
-import java.io.IOException;
-import java.lang.reflect.Member;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,7 +12,7 @@ public class CPR {
     private String cpr;
 
     public CPR() throws ParseException{
-//        setCpr();
+
     }
 
     public CPR(String cpr) {
