@@ -17,7 +17,8 @@ public class Membership extends Swimmer {
     private int price;
     private String join;
 
-    public Membership() throws ParseException{
+    public Membership(ArrayList<Membership> members) throws ParseException{
+        super(members);
         setActive();
         if (active == true) {
             setElite();

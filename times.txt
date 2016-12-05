@@ -1,7 +1,0 @@
-CPR	NAVN	CRAWL	TID	BUTTERFLY	TID	BRYST	TID	FRI	TID
-161192-2937	true	65	false	0	false	0	false	0
-111111-1111	true	1234	false	0	false	0	false	0
-030303-0303	true	500	false	0	false	0	false	0
-040404-0404	true	23	false	0	false	0	false	0
-050505-0505	true	73	false	0	false	0	false	0
-060606-0606	true	66	false	0	false	0	false	0

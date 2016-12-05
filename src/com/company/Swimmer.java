@@ -1,6 +1,7 @@
 package com.company;
 import java.text.ParseException;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Swimmer extends CPR{
@@ -8,10 +9,10 @@ public class Swimmer extends CPR{
     private int age;
     private String birthday;
 
-    public Swimmer() throws ParseException{
-        setCpr();
+    public Swimmer(ArrayList<Membership>members) throws ParseException{
+        setCpr(members);
         setBirthday();
-        setAge();
+        setAge(members);
         setName();
     }
 
@@ -25,15 +26,15 @@ public class Swimmer extends CPR{
         return age;
     }
 
-    public void setAge() throws ParseException{
+    public void setAge(ArrayList<Membership> members) throws ParseException{
         DateCalc dateCalc = new DateCalc(this.birthday);
         try {
             long years = ChronoUnit.YEARS.between(dateCalc.getBirthDate(),dateCalc.getJoinDate());
             this.age = (int) years;
         } catch (Exception e){
             System.out.println("Fejl! Det indtastede er ikke et gyldigt CPR");
-            setCpr();
-            setAge();
+            setCpr(members);
+            setAge(members);
         }
     }
 

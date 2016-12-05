@@ -32,7 +32,7 @@ public class FileWriter{
         out.printf("%-10s", tBryst);
         out.printf("%-10S", tFri);
         out.printf("%-10s", tJuinor);
-        out.printf("%-12", tSenior);
+        out.printf("%-12s", tSenior);
         out.printf("%-10s\n", tPrice);
 
 

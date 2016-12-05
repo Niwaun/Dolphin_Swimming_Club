@@ -74,7 +74,7 @@ public class User {
                     role = "Coach";
                     return;
                 case "bestyrrer":
-                    role = "Chairmain";
+                    role = "Chairman";
                     return;
                 case "kasserer":
                     role = "Treasurer";
