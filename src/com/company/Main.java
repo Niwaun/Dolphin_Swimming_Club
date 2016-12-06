@@ -84,12 +84,20 @@ public class Main {
         Scanner input = new Scanner(System.in);
         boolean error = true;
         boolean runPrint = true;
+        boolean run1 = true;
+        String cpr3;
         do {
-            System.out.println("Skriv CPR på det medlem du ønsker at printe");
-
-            String cpr3 = input.next();
-            cpr3 = cpr3.substring(0, 6) + "-" + cpr3.substring(6, 10);
-            error = true;
+            do {
+                run1 = false;
+                System.out.println("Skriv CPR på det medlem du ønsker at printe");
+                cpr3 = input.next();
+                try {
+                    cpr3 = cpr3.substring(0, 6) + "-" + cpr3.substring(6, 10);
+                } catch (Exception e) {
+                    System.out.println("Ugyldigt cpr");
+                    run1 = true;
+                }
+            } while (run1);
             for (int i = 0; i < members.size(); i++) {
                 if (cpr3.equals(members.get(i).getCpr())) {
 
