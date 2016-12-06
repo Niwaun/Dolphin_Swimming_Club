@@ -2,4 +2,4 @@ NAVN            USERNAME        PASSWORD        ROLLE
 Alexander       Niwaun          1234            Admin           
 Anders          monsterbosslol  1234            Coach           
 Thor            Thor            1234            Treasurer       
-Asger           Asgerino        1234            Chairman
+Asger           Asgerino        1234            Chairman        

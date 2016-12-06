@@ -147,32 +147,41 @@ public class Membership extends Swimmer {
         Scanner input = new Scanner(System.in);
 
         boolean quit = false;
+        boolean runChoose = true;
+        String ans = "";
 
         do {
 
-            System.out.println("Hvilken disciplin er svømmeren aktiv i?");
-            System.out.println("1. Crawl\n2. Butterfly\n3. Bryst\n4. Fri");
-            String ans = input.nextLine().toLowerCase();
+            while(runChoose) {
+                System.out.println("Hvilken disciplin er svømmeren aktiv i?");
+                System.out.println("1. Crawl\n2. Butterfly\n3. Bryst\n4. Fri");
+                ans = input.nextLine().toLowerCase();
 
-            switch (ans) {
-                case "crawl":
-                    this.crawl = true;
-                    break;
+                switch (ans) {
+                    case "crawl":
+                        this.crawl = true;
+                        runChoose = false;
+                        break;
 
-                case "butterfly":
-                    this.butterfly = true;
-                    break;
+                    case "butterfly":
+                        this.butterfly = true;
+                        runChoose = false;
+                        break;
 
-                case "bryst":
-                    this.bryst = true;
-                    break;
+                    case "bryst":
+                        this.bryst = true;
+                        runChoose = false;
+                        break;
 
-                case "fri":
-                    this.fri = true;
-                    break;
+                    case "fri":
+                        this.fri = true;
+                        runChoose = false;
+                        break;
 
-                default:
-                    System.out.println("Der opstod en fejl. Prøv igen.\nIndtast navnet på disciplinen, tak.");
+                    default:
+                        System.out.println("Der opstod en fejl. Prøv igen.\nIndtast navnet på disciplinen, tak.");
+                        break;
+                }
             }
             System.out.println("Vil du tilføje flere discipliner?");
             ans = input.nextLine().toLowerCase();
