@@ -64,7 +64,7 @@ public class User {
     public void setRole() {
         Scanner input = new Scanner(System.in);
         System.out.println("Vælg rolle:");
-        System.out.println("Admin\nTræner\nBestyrrer\nKasserer");
+        System.out.println("Admin\nTræner\nBestyrer\nKasserer");
         do {
             switch (input.next().toLowerCase()) {
                 case "admin":
@@ -73,7 +73,7 @@ public class User {
                 case "træner":
                     role = "Coach";
                     return;
-                case "bestyrrer":
+                case "bestyrer":
                     role = "Chairman";
                     return;
                 case "kasserer":

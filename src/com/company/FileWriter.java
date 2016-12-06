@@ -18,13 +18,14 @@ public class FileWriter{
 
         out = new PrintStream(new File(this.fileName));
 
-        String tCpr = "CPR", tName = "NAVN", tAge = "ALDER", tActive = "AKTIVT", tElite = "ELITE", tJuinor = "JUNIOR",
+        String tCpr = "CPR", tName = "NAVN", tAge = "ALDER", tDate = "DATO", tActive = "AKTIVT", tElite = "ELITE", tJuinor = "JUNIOR",
                 tSenior = "SEN.DISC", tPrice = "PRICE", tCrawl = "CRAWL", tButterfly = "BUTTERFLY",
                 tBryst = "BRYST", tFri = "FRI";
 
         out.printf("%-13s", tCpr);
         out.printf("%-16s", tName);
         out.printf("%-10s", tAge);
+        out.printf("%-16s", tDate);
         out.printf("%-10s", tActive);
         out.printf("%-10s", tElite);
         out.printf("%-10s", tCrawl);
@@ -39,6 +40,7 @@ public class FileWriter{
         for (int i = 0; i < members.size(); i++) {
             String cpr = members.get(i).getCpr();
             String name = members.get(i).getName();
+            String date = members.get(i).getJoin();
             int price = members.get(i).getPrice();
             int age = members.get(i).getAge();
             boolean active = members.get(i).isActive();
@@ -53,6 +55,7 @@ public class FileWriter{
             out.printf("%-13s", cpr);
             out.printf("%-16s", name);
             out.printf("%-10d", age);
+            out.printf("%-16s", date);
             out.printf("%-10s", convertToString(active));
             out.printf("%-10s", convertToString(elite));
             out.printf("%-10s", convertToString(crawl));

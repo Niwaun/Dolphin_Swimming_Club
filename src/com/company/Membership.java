@@ -32,10 +32,11 @@ public class Membership extends Swimmer {
         setJoin();
     }
 
-    public Membership(String cpr, String name, int age, boolean active, boolean elite, boolean crawl, boolean butterfly,
+    public Membership(String cpr, String name, int age, String date, boolean active, boolean elite, boolean crawl, boolean butterfly,
                       boolean bryst, boolean fri, boolean junior, boolean disc, int price)throws ParseException{
 
         super(cpr, name, age);
+        this.join = date;
         this.active = active;
         this.elite = elite;
         this.crawl = crawl;
@@ -79,7 +80,7 @@ public class Membership extends Swimmer {
                 case "elite":
                     elite = true;
                     return;
-                case "træning":
+                case "trænings":
                     elite = false;
                     return;
                 default:

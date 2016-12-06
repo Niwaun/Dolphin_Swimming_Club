@@ -33,7 +33,11 @@ public class FileReader {
         Scanner lineScanner = new Scanner(text);
         String tempCPR;
         String tempName;
+        String tempDate;
+
         int tempAge;
+        int tempPrice;
+
         boolean tempActive;
         boolean tempElite;
         boolean tempJunior;
@@ -44,7 +48,6 @@ public class FileReader {
         boolean tempBryst;
         boolean tempFri;
 
-        int tempPrice;
 
 
         while(lineScanner.hasNext()){
@@ -52,6 +55,7 @@ public class FileReader {
             tempCPR = lineScanner.next();
             tempName = lineScanner.next();
             tempAge = lineScanner.nextInt();
+            tempDate = lineScanner.next();
             tempActive = lineScanner.nextBoolean();
             tempElite = lineScanner.nextBoolean();
             tempCrawl = lineScanner.nextBoolean();
@@ -62,7 +66,7 @@ public class FileReader {
             tempSeniorDisc = lineScanner.nextBoolean();
             tempPrice = lineScanner.nextInt();
 
-            members.add(new Membership(tempCPR, tempName, tempAge, tempActive, tempElite, tempCrawl, tempButterfly,
+            members.add(new Membership(tempCPR, tempName, tempAge, tempDate, tempActive, tempElite, tempCrawl, tempButterfly,
                     tempBryst, tempFri, tempJunior, tempSeniorDisc, tempPrice));
 
         }

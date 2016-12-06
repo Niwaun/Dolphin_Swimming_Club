@@ -74,9 +74,9 @@ public class Main {
         users.add(new User());
     }
 
-    public static void createTime(ArrayList<Times> times, String a, String b) throws ParseException {
+    public static void createTime(ArrayList<Times> times, String name, String cpr) throws ParseException {
 
-        times.add(new Times(times, a, b));
+        times.add(new Times(times, name, cpr));
     }
 
     public static void printSwimmerInfo(ArrayList<Membership> members) {
@@ -93,13 +93,14 @@ public class Main {
             for (int i = 0; i < members.size(); i++) {
                 if (cpr3.equals(members.get(i).getCpr())) {
 
-                    String tCpr = "CPR", tName = "NAVN", tAge = "ALDER", tActive = "AKTIVT",
+                    String tCpr = "CPR", tName = "NAVN", tAge = "ALDER", tDate = "DATO", tActive = "AKTIVT",
                             tElite = "ELITE", tJuinor = "JUNIOR", tSenior = "SEN.DISC", tPrice = "PRICE",
                             tCrawl = "CRAWL", tButterfly = "BUTTERFLY", tBryst = "BRYST", tFri = "FRI";
 
                     System.out.printf("%-13s", tCpr);
                     System.out.printf("%-16s", tName);
                     System.out.printf("%-10s", tAge);
+                    System.out.printf("%-16s", tDate);
                     System.out.printf("%-10s", tActive);
                     System.out.printf("%-10s", tElite);
                     System.out.printf("%-10s", tCrawl);
@@ -111,6 +112,7 @@ public class Main {
                     System.out.printf("%-10s\n", tPrice);
                     String cpr4 = members.get(i).getCpr();
                     String name = members.get(i).getName();
+                    String date = members.get(i).getJoin();
                     int price = members.get(i).getPrice();
                     int age = members.get(i).getAge();
                     boolean active = members.get(i).isActive();
@@ -125,6 +127,7 @@ public class Main {
                     System.out.printf("%-13s", cpr4);
                     System.out.printf("%-16s", name);
                     System.out.printf("%-10d", age);
+                    System.out.printf("%-16s", date);
                     System.out.printf("%-10s", convertToString(active));
                     System.out.printf("%-10s", convertToString(elite));
                     System.out.printf("%-10s", convertToString(crawl));
@@ -296,7 +299,7 @@ public class Main {
         boolean run = true;
         do {
         System.out.println();
-        System.out.println("Vil du: \nOprette en bruger?\nSlette en bruger?\nÆndre en bruger?\nPrint brugerliste\nAfslutte?");
+        System.out.println("Vil du: \nOprette en bruger?\nSlette en bruger?\nÆndre en bruger?\nPrinte brugerliste\nAfslutte?");
         String ans = "";
         ans = input.next().toLowerCase();
         switch (ans) {
@@ -386,7 +389,7 @@ public class Main {
                 run = false;
                 fwUsers.saveUserToFile(users);
                 break;
-            case "print":
+            case "printe":
                 String roller = "ROLLE";
                 String brugernavne = "BRUGERNAVN";
                 System.out.printf("%-16s%-10s\n", brugernavne, roller);
@@ -398,7 +401,7 @@ public class Main {
                 break;
             default:
                 System.out.println("Fejl. Svar venligst med \"Oprette\", \"Slette\", \"Ændre\", " +
-                        "\"Print\", \"Afslutte\".");
+                        "\"Printe\", \"Afslutte\".");
                 break;
         }
         }while(run);
@@ -475,7 +478,7 @@ public class Main {
                         if (cpr.equals(members.get(i).getCpr())) {
                             error = false;
                             do {
-                                System.out.println("Hvad ønsker du at ændre?\nCPR?\nNavn?\nAktiv?\n");
+                                System.out.println("Hvad ønsker du at ændre?\nCPR?\nNavn?\nMedlemstype?");
                                 switch (input.next().toLowerCase()) {
                                     case "cpr":
                                         members.get(i).setCpr(members);
@@ -483,7 +486,7 @@ public class Main {
                                     case "navn":
                                         members.get(i).setName();
                                         break;
-                                    case "aktiv":
+                                    case "medlemstype":
                                         members.get(i).setActive();
                                         if(members.get(i).isActive()){
                                             members.get(i).setElite();
@@ -491,9 +494,10 @@ public class Main {
                                                 members.get(i).chooseDisciplin();
                                             }
                                         }
+                                        members.get(i).setPrice();
                                         break;
                                     default:
-                                        System.out.println("Fejl. Svar venligst med \"cpr\", \"navn\", \"aktiv\"");
+                                        System.out.println("Fejl. Svar venligst med \"cpr\", \"navn\", \"medlemstype\"");
                                         break;
                                 }
 
