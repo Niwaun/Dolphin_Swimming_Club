@@ -20,15 +20,29 @@ public class TopFive {
         System.out.printf("De 5 hurtigste tider er:\n%-3s%-16s%-8s\n", snr, sname, stime);
 
         Collections.sort(timeArray);
-        timeArray.subList(5, (timeArray.size())).clear();
-        for (int i = 0; i < timeArray.size(); i++) {
-            int time = timeArray.get(i);
-            for (int j = 0; j < times.size(); j++) {
-                if (time == times.get(j).getTime()) {
-                    String name = times.get(j).getName();
+        if(timeArray.size() >= 5) {
+            timeArray.subList(5, (timeArray.size())).clear();
+            for (int i = 0; i < timeArray.size(); i++) {
+                int time = timeArray.get(i);
+                for (int j = 0; j < times.size(); j++) {
+                    if (time == times.get(j).getTime()) {
+                        String name = times.get(j).getName();
 
-                    System.out.printf("%-3d%-16s%-8d\n", i+1, name, time);
+                        System.out.printf("%-3d%-16s%-8d\n", i + 1, name, time);
 
+                    }
+                }
+            }
+        } else {
+            for (int i = 0; i < timeArray.size(); i++) {
+                int time = timeArray.get(i);
+                for (int j = 0; j < times.size(); j++) {
+                    if (time == times.get(j).getTime()) {
+                        String name = times.get(j).getName();
+
+                        System.out.printf("%-3d%-16s%-8d\n", i + 1, name, time);
+
+                    }
                 }
             }
         }
