@@ -420,15 +420,15 @@ public class Main {
                     "Printe info om et medlem?\nAfslutte?");
 
             String ans = input.next().toLowerCase();
-            switch(ans){
+            switch(ans) {
                 case "oprette":
                     boolean runOpret = true;
                     do {
 
                         createMember(members);
                         System.out.println(members.get(members.size() - 1).getName() + " er oprettet som medlem.");
-                        System.out.println(members.get(members.size()-1).getName() + " skal betale " +
-                        members.get(members.size()-1).getPrice() + " kr.");
+                        System.out.println(members.get(members.size() - 1).getName() + " skal betale " +
+                                members.get(members.size() - 1).getPrice() + " kr.");
                         System.out.println("Ønsker du at oprette flere?");
                         if (input.next().equalsIgnoreCase("nej")) {
                             runOpret = false;
@@ -436,17 +436,26 @@ public class Main {
                     } while (runOpret);
                     break;
                 case "slette":
+                    printSomeMemberInfo(members);
                     boolean runSlet = true;
                     boolean error = true;
+                    String cpr1 = "";
+                    boolean run1;
+                    do {
+                        do {
+                            run1 = false;
+                            System.out.println("Indtast CPR for det medlem du vil slette.");
+                            cpr1 = input.next();
+                            try {
+                                cpr1 = cpr1.substring(0, 6) + "-" + cpr1.substring(6, 10);
+                            } catch (Exception e) {
+                                System.out.println("Ugyldigt cpr");
+                                run1 = true;
+                            }
+                        } while (run1);
 
-                    do{
-                        System.out.println("Skriv CPR på det medlem du ønsker at slette");
-
-                        String cpr = input.next();
-                        cpr = cpr.substring(0,6) + "-" + cpr.substring(6,10);
-                        error = true;
                         for (int i = 0; i < members.size(); i++) {
-                            if (cpr.equals(members.get(i).getCpr())) {
+                            if (cpr1.equals(members.get(i).getCpr())) {
                                 String name = members.get(i).getName();
                                 members.remove(i);
                                 System.out.println(name + " er nu slettet.");
@@ -458,10 +467,12 @@ public class Main {
                         }
 
                         System.out.println("Ønsker du at slette flere?");
-                        if(input.next().equalsIgnoreCase("nej")){
+                        if (input.next().equalsIgnoreCase("nej")) {
                             runSlet = false;
                         }
-                    } while(runSlet);
+
+                    } while (runSlet);
+
                     break;
                 case "ændre":
 
@@ -516,14 +527,7 @@ public class Main {
 
                     break;
                 case "printe":
-                    String scpr = "CPR";
-                    String snavn = "NAVN";
-                    System.out.printf("%-16s%-16s\n", scpr, snavn);
-                    for (Membership member: members) {
-                        String tempCpr = member.getCpr();
-                        String tempNavn = member.getName();
-                        System.out.printf("%-16s%-16s\n", tempCpr, tempNavn);
-                    }
+                    printSomeMemberInfo(members);
                     System.out.println("");
                     System.out.println("Print yderligere information om et medlem?");
                     String svar = input.next();
@@ -761,6 +765,17 @@ public class Main {
                 newTime = input.nextInt();
                 times.get(i).setTime(newTime);
             }
+        }
+    }
+
+    public static void printSomeMemberInfo(ArrayList<Membership> members){
+        String scpr = "CPR";
+        String snavn = "NAVN";
+        System.out.printf("%-16s%-16s\n", scpr, snavn);
+        for (Membership member: members) {
+            String tempCpr = member.getCpr();
+            String tempNavn = member.getName();
+            System.out.printf("%-16s%-16s\n", tempCpr, tempNavn);
         }
     }
 }
