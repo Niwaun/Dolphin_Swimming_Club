@@ -344,14 +344,14 @@ public class Main {
                 break;
 
             case "ændre":
-                System.out.println("Skriv brugernavnet på den bruger, du ønsker at ændre");
-                String ændre = input.next();
                 boolean runÆndre = true;
                 boolean error = true;
+                do {
+                System.out.println("Skriv brugernavnet på den bruger, du ønsker at ændre");
+                String ændre = input.next();
                 for (int i = 0; i < users.size(); i++) {
                     if (ændre.equals(users.get(i).getUsername())) {
                         error = false;
-                        do {
                             System.out.println("Hvad ønsker du at ændre?\nNavn?\nBrugernavn?\nKodeord?\nRolle?");
                             switch (input.next().toLowerCase()) {
                                 case "brugernavn":
@@ -372,17 +372,18 @@ public class Main {
                                     break;
                             }
 
-                            System.out.println("Ønsker du at ændre mere?");
-                            if (input.next().equalsIgnoreCase("nej")) {
-                                runÆndre = false;
-                            }
-                        } while (runÆndre);
+                        }
+                }
+                    if(error){
+                        System.out.println("Fejl. Kunne ikke finde et match.");
                     }
-                }
+                    System.out.println("Ønsker du at ændre mere?");
+                    if (input.next().equalsIgnoreCase("nej")) {
+                        runÆndre = false;
+                    }
+                } while(runÆndre);
 
-                if(error){
-                    System.out.println("Fejl. Kunne ikke finde et match.");
-                }
+
 
                 break;
             case "afslutte":
