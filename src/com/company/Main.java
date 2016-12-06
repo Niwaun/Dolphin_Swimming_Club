@@ -259,7 +259,7 @@ public class Main {
                 }
             }
 
-            System.out.println("Fortsæt?");
+            System.out.println("Fejl. Kunne ikke finde CPR. Prøv igen?");
             if (input.next().equalsIgnoreCase("nej")) {
                 run = false;
             }
@@ -368,7 +368,7 @@ public class Main {
                                     break;
                                 default:
                                     System.out.println("Fejl. Svar venligst med \"Navn\", \"Brugernavn\", \"Kodeord\"" +
-                                            "\"Rolle\".");
+                                            ", \"Rolle\".");
                                     break;
                             }
 
