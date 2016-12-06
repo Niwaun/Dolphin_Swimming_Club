@@ -155,7 +155,7 @@ public class Membership extends Swimmer {
             while(runChoose) {
                 System.out.println("Hvilken disciplin er svømmeren aktiv i?");
                 System.out.println("1. Crawl\n2. Butterfly\n3. Bryst\n4. Fri");
-                ans = input.nextLine().toLowerCase();
+                ans = input.next().toLowerCase();
 
                 switch (ans) {
                     case "crawl":
@@ -184,10 +184,11 @@ public class Membership extends Swimmer {
                 }
             }
             System.out.println("Vil du tilføje flere discipliner?");
-            ans = input.nextLine().toLowerCase();
+            ans = input.next().toLowerCase();
             switch(ans){
                 case "ja":
                     quit = true;
+                    runChoose = true;
                     break;
                 case "nej":
                     quit = false;
