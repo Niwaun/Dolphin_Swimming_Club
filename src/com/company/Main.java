@@ -203,7 +203,6 @@ public class Main {
         boolean run = true;
         boolean error = true;
         String name = "";
-
         int i = 0;
         String cpr = "";
 
