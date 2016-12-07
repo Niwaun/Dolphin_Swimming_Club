@@ -1,11 +1,11 @@
 CPR          NAVN            ALDER     DATO            AKTIVT    ELITE     CRAWL     BUTTERFLY BRYST     FRI       JUNIOR    SEN.DISC    PRICE     
 161192-4653  Egon            24        07/12/2016      true      true      true      false     true      true      false     false       1600      
 090861-9761  Alfredo         55        07/12/2016      false     false     false     false     false     false     false     false       500       
-101205-9980  Ida             10        07/12/2016      true      true      false     true      true      false     true      false       1000      
+101205-9980  Ida             10        07/12/2016      true      true      false     true      true      true     true      false       1000
 180786-1704  Yvone           30        07/12/2016      true      true      false     true      true      false     false     false       1600      
 230258-6811  Connie          58        07/12/2016      true      true      true      false     true      true      false     false       1600      
 160542-9071  Arne            74        07/12/2016      true      true      true      false     true      false     false     true        1200      
 010103-4759  Ole             13        07/12/2016      true      true      true      true      false     true      true      false       1000      
 160945-0291  Mogens          71        07/12/2016      false     false     false     false     false     false     false     true        375       
 111245-4666  Vibike          70        07/12/2016      true      true      false     false     false     true      false     true        1200      
-020304-3943  Henrik          12        07/12/2016      true      true      true      false     false     false     true      false       1000      
+020304-3943  Henrik          12        07/12/2016      true      true      true      false     false     true     true      false       1000
