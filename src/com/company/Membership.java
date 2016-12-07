@@ -146,7 +146,7 @@ public class Membership extends Swimmer {
     public void chooseDisciplin(){
         Scanner input = new Scanner(System.in);
 
-        boolean quit = false;
+        boolean quit = true;
         boolean runChoose = true;
         String ans = "";
 
@@ -180,6 +180,7 @@ public class Membership extends Swimmer {
 
                     default:
                         System.out.println("Der opstod en fejl. Prøv igen.\nIndtast navnet på disciplinen, tak.");
+                        runChoose = true;
                         break;
                 }
             }
@@ -187,7 +188,6 @@ public class Membership extends Swimmer {
             ans = input.next().toLowerCase();
             switch(ans){
                 case "ja":
-                    quit = true;
                     runChoose = true;
                     break;
                 case "nej":
