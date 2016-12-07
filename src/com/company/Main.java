@@ -201,6 +201,7 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         boolean run = true;
+        boolean error = true;
         String name = "";
         int i = 0;
         String cpr = "";
@@ -240,21 +241,25 @@ public class Main {
                                 createTime(crawl, name, cpr);
                                 System.out.println("Der er nu oprettet en tid for: " +
                                         members.get(i).getName());
+                                error = false;
                                 break;
                             case "butterfly":
                                 createTime(butterfly, name, cpr);
                                 System.out.println("Der er nu oprettet en tid for: " +
                                         members.get(i).getName());
+                                error = false;
                                 break;
                             case "bryst":
                                 createTime(bryst, name, cpr);
                                 System.out.println("Der er nu oprettet en tid for: " +
                                         members.get(i).getName());
+                                error = false;
                                 break;
                             case "fri":
                                 createTime(fri, name, cpr);
                                 System.out.println("Der er nu oprettet en tid for: " +
                                         members.get(i).getName());
+                                error = false;
                                 break;
                             default:
                                 System.out.println("Fejl. Kan ikke finde disciplin.\nPrøv igen.");
@@ -266,9 +271,16 @@ public class Main {
                     }
                 }
             }
+            if(error){
+                System.out.println("Fejl. Kunne ikke finde CPR. Prøv igen?");
 
-            System.out.println("Fejl. Kunne ikke finde CPR. Prøv igen?");
-            if (input.next().equalsIgnoreCase("nej")) {
+                if (input.next().equalsIgnoreCase("nej")) {
+                    run = false;
+                }
+            }
+            System.out.println("Vil du oprette flere tider?");
+            String svar = input.next().toLowerCase();
+            if(svar.equals("nej")){
                 run = false;
             }
         } while (run);
