@@ -9,6 +9,4 @@ CPR          NAVN            ALDER     DATO            AKTIVT    ELITE     CRAWL
 160945-0291  Mogens          71        07/12/2016      false     false     false     false     false     false     false     true        375       
 111245-4666  Vibike          70        07/12/2016      true      true      false     false     false     true      false     true        1200      
 020304-3943  Henrik          12        07/12/2016      true      true      true      false     false     true      true      false       1000      
-121213-1415  Karen           3         15/12/2016      true      true      true      false     false     true      true      false       1000      
-050505-0505  Lotte           11        15/12/2016      true      true      false     false     true      true      true      false       1000      
-030493-2481  Asger           23        15/12/2016      true      true      false     true      false     false     false     false       1600      
+121213-1415  Karen           3         15/12/2016      true      true      true      false     false     true      true      false       1000
