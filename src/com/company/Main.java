@@ -514,6 +514,8 @@ public class Main {
                                 switch (input.next().toLowerCase()) {
                                     case "cpr":
                                         members.get(i).setCpr(members);
+                                        members.get(i).setBirthday();
+                                        members.get(i).setAge(members);
                                         break;
                                     case "navn":
                                         members.get(i).setName();
