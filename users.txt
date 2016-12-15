@@ -1,5 +1,4 @@
 NAVN            USERNAME        PASSWORD        ROLLE           
 Alexander       Admin           1234            Admin           
 Anders          Coach           1234            Coach           
-Thor            Chairman        1234            Chairman        
-Tom             Treasurer       1234            Treasurer       
+Tom             Treasurer       1234            Treasurer
